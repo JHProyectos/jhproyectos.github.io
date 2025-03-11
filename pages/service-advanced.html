@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página Avanzada - Dinámica, con sliders y elementos interactivos">
+    <meta name="keywords" content="página avanzada, interactiva, sliders, JH Proyectos">
+    <title>Página Avanzada | JH Proyectos</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/light-theme.css" id="theme-style">
+    <script src="/scripts/lang.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+    <script src="/components/slider.html" defer></script>
+</head>
+<body>
+    <!-- Header será cargado dinámicamente -->
+    <div id="header-container"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-lang-key="service-advanced-title">Página Avanzada</h1>
+                <p class="page-subtitle" data-lang-key="service-advanced-desc">Página Avanzada - Dinámica, con sliders y elementos interactivos.</p>
+            </div>
+        </section>
+
+        <section class="service-content">
+            <div class="container">
+                <!-- Slider de ejemplo -->
+                <div class="slider-container">
+                    <div class="slider" id="example-slider">
+                        <div class="slide">
+                            <img src="/placeholder.svg?height=400&width=800" alt="Ejemplo 1">
+                            <div class="slide-caption">
+                                <h3>Diseño Interactivo</h3>
+                                <p>Elementos dinámicos que mejoran la experiencia del usuario</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="/placeholder.svg?height=400&width=800" alt="Ejemplo 2">
+                            <div class="slide-caption">
+                                <h3>Animaciones Suaves</h3>
+                                <p>Transiciones y efectos que dan vida a tu contenido</p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="/placeholder.svg?height=400&width=800" alt="Ejemplo 3">
+                            <div class="slide-caption">
+                                <h3>Componentes Personalizados</h3>
+                                <p>Elementos únicos adaptados a tus necesidades</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-control prev" data-slider="example-slider">❮</button>
+                    <button class="slider-control next" data-slider="example-slider">❯</button>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-details">
+                        <h2>Características</h2>
+                        <ul class="feature-list">
+                            <li>Diseño dinámico con elementos interactivos</li>
+                            <li>Sliders y carruseles para mostrar contenido</li>
+                            <li>Animaciones y transiciones suaves</li>
+                            <li>Navegación avanzada y menús interactivos</li>
+                            <li>Formularios con validación en tiempo real</li>
+                            <li>Componentes personalizados según necesidades</li>
+                        </ul>
+                        
+                        <h2>Ideal para</h2>
+                        <ul class="ideal-list">
+                            <li>Empresas con múltiples servicios o productos</li>
+                            <li>Agencias creativas</li>
+                            <li>Portfolios profesionales</li>
+                            <li>Sitios de noticias o blogs</li>
+                            <li>Presentación de proyectos complejos</li>
+                        </ul>
+                        
+                        <a href="/pages/contact.html" class="cta-button">Solicitar presupuesto</a>
+                    </div>
+                    
+                    <div class="service-image-container">
+                        <img src="/images/advanced-page.jpg" alt="Ejemplo de Página Avanzada" class="service-detail-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer será cargado dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+        <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </button>
+
+    <!-- Language Selector (Mobile) -->
+    <div class="language-selector-mobile">
+        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar slider
+            initSlider('example-slider');
+        });
+
+        function initSlider(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.querySelectorAll('.slide');
+            const prevBtn = document.querySelector(`.slider-control.prev[data-slider="${sliderId}"]`);
+            const nextBtn = document.querySelector(`.slider-control.next[data-slider="${sliderId}"]`);
+            
+            let currentSlide = 0;
+            
+            // Ocultar todos los slides excepto el primero
+            for (let i = 1; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            
+            // Función para mostrar un slide específico
+            function showSlide(n) {
+                // Ocultar todos los slides
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                
+                // Mostrar el slide actual
+                slides[n].style.display = 'block';
+            }
+            
+            // Evento para el botón anterior
+            prevBtn.addEventListener('click', function() {
+                currentSlide--;
+                if (currentSlide < 0) {
+                    currentSlide = slides.length - 1;
+                }
+                showSlide(currentSlide);
+            });
+            
+            // Evento para el botón siguiente
+            nextBtn.addEventListener('click', function() {
+                currentSlide++;
+                if (currentSlide >= slides.length) {
+                    currentSlide = 0;
+                }
+                showSlide(currentSlide);
+            });
+            
+            // Cambiar slide automáticamente cada 5 segundos
+            setInterval(function() {
+                currentSlide++;
+                if (currentSlide >= slides.length) {
+                    currentSlide = 0;
+                }
+                showSlide(currentSlide);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
+

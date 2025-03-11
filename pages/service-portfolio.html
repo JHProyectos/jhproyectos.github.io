@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página Tipo Portfolio - Ideal para mostrar tus proyectos con subsecciones navegables">
+    <meta name="keywords" content="portfolio, proyectos, galería, JH Proyectos">
+    <title>Página Tipo Portfolio | JH Proyectos</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/light-theme.css" id="theme-style">
+    <script src="/scripts/lang.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+</head>
+<body>
+    <!-- Header será cargado dinámicamente -->
+    <div id="header-container"></div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-lang-key="service-portfolio-title">Página Tipo Portfolio</h1>
+                <p class="page-subtitle" data-lang-key="service-portfolio-desc">Página Tipo Portfolio - Ideal para mostrar tus proyectos con subsecciones navegables.</p>
+            </div>
+        </section>
+
+        <section class="service-content">
+            <div class="container">
+                <div class="portfolio-navigation">
+                    <h2>Proyectos de Ejemplo</h2>
+                    <ul class="portfolio-nav-list">
+                        <li><a href="/pages/service-portfolio-item.html" data-lang-key="portfolio-project1">Proyecto 1</a></li>
+                        <li><a href="/pages/service-portfolio-item.html" data-lang-key="portfolio-project2">Proyecto 2</a></li>
+                        <li><a href="/pages/service-portfolio-item.html" data-lang-key="portfolio-project3">Proyecto 3</a></li>
+                    </ul>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-details">
+                        <h2>Características</h2>
+                        <ul class="feature-list">
+                            <li>Diseño enfocado en mostrar proyectos o trabajos</li>
+                            <li>Galerías de imágenes optimizadas</li>
+                            <li>Navegación intuitiva entre proyectos</li>
+                            <li>Páginas detalladas para cada proyecto</li>
+                            <li>Filtros y categorías para organizar el contenido</li>
+                            <li>Diseño responsive para todos los dispositivos</li>
+                        </ul>
+                        
+                        <h2>Ideal para</h2>
+                        <ul class="ideal-list">
+                            <li>Fotógrafos y artistas</li>
+                            <li>Diseñadores gráficos</li>
+                            <li>Arquitectos</li>
+                            <li>Agencias creativas</li>
+                            <li>Desarrolladores web</li>
+                        </ul>
+                        
+                        <a href="/pages/contact.html" class="cta-button">Solicitar presupuesto</a>
+                    </div>
+                    
+                    <div class="service-image-container">
+                        <img src="/images/portfolio-page.jpg" alt="Ejemplo de Página Tipo Portfolio" class="service-detail-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer será cargado dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+        <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </button>
+
+    <!-- Language Selector (Mobile) -->
+    <div class="language-selector-mobile">
+        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+    </div>
+</body>
+</html>
+

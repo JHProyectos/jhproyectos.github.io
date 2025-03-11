@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="JH Proyectos - Creamos páginas web modernas y funcionales para tu negocio">
+    <meta name="keywords" content="diseño web, páginas web, desarrollo web, sitios web, JH Proyectos">
+    <title>JH Proyectos - Diseño Web Profesional</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="scripts/lang.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+</head>
+<body>
+    <!-- Header será cargado dinámicamente -->
+    <div id="header-container"></div>
+
+    <main>
+        <section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title" data-lang-key="hero-title">Bienvenidos a JH Proyectos</h1>
+            <p class="hero-subtitle" data-lang-key="hero-subtitle">Creamos páginas web modernas y funcionales para tu negocio.</p>
+            <div class="hero-buttons">
+                <a href="pages/services.html" class="cta-button" data-lang-key="cta-button">Explora nuestros servicios</a>
+                <a href="pages/contact.html" class="secondary-button">Contáctanos</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/placeholder.svg?height=400&width=500" alt="Diseño Web Responsive" class="responsive-image">
+        </div>
+    </div>
+</section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="features-title" data-aos="fade-up">¿Por qué elegirnos?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">🚀</div>
+                        <h3 data-lang-key="feature1-title">Diseño Moderno</h3>
+                        <p data-lang-key="feature1-desc">Creamos sitios web con diseños actuales y atractivos.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">📱</div>
+                        <h3 data-lang-key="feature2-title">Responsive</h3>
+                        <p data-lang-key="feature2-desc">Todos nuestros sitios se adaptan perfectamente a cualquier dispositivo.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-lang-key="feature3-title">Optimizados</h3>
+                        <p data-lang-key="feature3-desc">Sitios rápidos y optimizados para buscadores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="services-preview-title" data-aos="fade-up">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <a href="pages/service-landing.html" class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/landing-page.jpg" alt="Landing Page" class="service-image">
+                        <h3 data-lang-key="service1-title">Página Simple</h3>
+                    </a>
+                    <a href="pages/service-sheet.html" class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/sheet-page.jpg" alt="Página Tipo Sábana" class="service-image">
+                        <h3 data-lang-key="service2-title">Página Tipo Sábana</h3>
+                    </a>
+                    <a href="pages/service-advanced.html" class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="images/advanced-page.jpg" alt="Página Avanzada" class="service-image">
+                        <h3 data-lang-key="service3-title">Página Avanzada</h3>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="pages/services.html" class="secondary-button" data-lang-key="view-all-services" data-aos="fade-up" data-aos-delay="400">Ver todos los servicios</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer será cargado dinámicamente -->
+    <div id="footer-container"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+        <img src="images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </button>
+
+    <!-- Language Selector (Mobile) -->
+    <div class="language-selector-mobile">
+        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            disable: 'mobile' // Deshabilitar en móviles para mejor rendimiento
+        });
+        
+        // Comprobar orientación y ajustar clases
+        checkOrientation();
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+        
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                document.body.classList.add('portrait');
+                document.body.classList.remove('landscape');
+            } else {
+                document.body.classList.add('landscape');
+                document.body.classList.remove('portrait');
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

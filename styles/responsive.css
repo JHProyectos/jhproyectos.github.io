@@ -1,0 +1,271 @@
+/* Estilos responsivos para JH Proyectos */
+
+/* Base responsiva */
+html {
+  font-size: 16px; /* Tamaño base para cálculos rem */
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contenedor principal con padding adaptable */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 2rem); /* Padding adaptable */
+}
+
+/* Clases de utilidad para mostrar/ocultar elementos según dispositivo */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* Hero section responsivo */
+.hero {
+  padding: clamp(3rem, 10vh, 6rem) 0;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Grids responsivos */
+.features-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Tarjetas responsivas */
+.feature-card,
+.service-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botones responsivos */
+.cta-button,
+.secondary-button,
+.submit-button {
+  padding: clamp(0.6rem, 2vw, 0.85rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  text-align: center;
+  width: fit-content;
+}
+
+/* Orientación específica */
+.portrait .hero .container {
+  flex-direction: column;
+}
+
+.portrait .hero-image {
+  order: -1; /* Imagen primero en móvil vertical */
+}
+
+.landscape .hero .container {
+  flex-direction: row;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+
+/* Tablets grandes y escritorios pequeños */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .hero .container {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    margin-top: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Móviles grandes y tablets pequeñas */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+  html {
+    font-size: 13px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .cta-button,
+  .hero-buttons .secondary-button {
+    width: 100%;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Orientación horizontal en dispositivos móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero .container {
+    flex-direction: row;
+  }
+
+  .hero-image {
+    max-width: 40%;
+  }
+
+  .feature-card {
+    padding: 1rem;
+  }
+}
+
+/* Pantallas muy grandes */
+@media (min-width: 1600px) {
+  html {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Soporte para modo oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme) {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --secondary-bg: #2a2a2a;
+    --border-color: #444444;
+  }
+}
+
+/* Preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

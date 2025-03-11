@@ -1,0 +1,67 @@
+{
+  "hero-title": "Welcome to JH Projects",
+  "hero-subtitle": "We create modern and functional websites for your business.",
+  "cta-button": "Explore our services",
+
+  "features-title": "Why Choose Us?",
+  "feature1-title": "Modern Design",
+  "feature1-desc": "We create websites with current and attractive designs.",
+  "feature2-title": "Responsive",
+  "feature2-desc": "All our sites adapt perfectly to any device.",
+  "feature3-title": "Optimized",
+  "feature3-desc": "Fast sites optimized for search engines.",
+
+  "services-preview-title": "Our Services",
+  "service1-title": "Simple Page",
+  "service2-title": "Sheet-Style Page",
+  "service3-title": "Advanced Page",
+  "view-all-services": "View all services",
+
+  "nav-home": "Home",
+  "nav-about": "About",
+  "nav-services": "Services",
+  "nav-contact": "Contact",
+
+  "footer-about": "About",
+  "footer-services": "Services",
+  "footer-contact": "Contact",
+  "footer-copyright": "© 2025 JH Projects - All rights reserved.",
+
+  "about-title": "We are JH Projects",
+  "about-description": "A team dedicated to designing web solutions for small businesses, professionals, and startups. Our mission is to make your online presence professional and effective.",
+
+  "services-title": "Our Services",
+  "services-subtitle": "Discover how we can help you stand out online.",
+  "service-landing-title": "Simple Page (Landing Page)",
+  "service-sheet-title": "Sheet-Style Page",
+  "service-advanced-title": "Advanced Page",
+  "service-portfolio-title": "Portfolio-Style Page",
+  "service-store-title": "Store Page",
+  "service-cms-title": "CMS Page",
+
+  "service-landing-desc": "Simple Presentation Page - Perfect for quick promotions or launches.",
+  "service-sheet-desc": "Sheet-Style Page - All your content in one long, organized page.",
+  "service-advanced-desc": "Advanced Page - Dynamic, with sliders and interactive elements.",
+  "service-portfolio-desc": "Portfolio-Style Page - Ideal for showcasing your projects with navigable subsections.",
+  "service-store-desc": "Store Page - Sell online with an integrated catalog and cart.",
+  "service-cms-desc": "CMS Page - Easily update your content with a management system.",
+
+  "portfolio-project1": "Project 1",
+  "portfolio-project2": "Project 2",
+  "portfolio-project3": "Project 3",
+
+  "portfolio-item-title": "Sample Project",
+  "portfolio-item-desc": "A look at how we organize your work's details.",
+
+  "contact-title": "Contact Us",
+  "contact-subtitle": "We're ready to take your project to the next level.",
+  "contact-name": "Name",
+  "contact-email": "Email",
+  "contact-message": "Message",
+  "contact-submit": "Send",
+
+  "404-title": "Page Not Found",
+  "404-message": "Sorry, the page you are looking for does not exist.",
+  "404-back": "Back to Home"
+}
+

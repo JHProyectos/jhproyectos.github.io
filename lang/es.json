@@ -1,0 +1,69 @@
+{
+  "hero-title": "Bienvenidos a JH Proyectos",
+  "hero-subtitle": "Creamos páginas web modernas y funcionales para tu negocio.",
+  "cta-button": "Explora nuestros servicios",
+
+  "features-title": "¿Por qué elegirnos?",
+  "feature1-title": "Diseño Moderno",
+  "feature1-desc": "Creamos sitios web con diseños actuales y atractivos.",
+  "feature2-title": "Responsive",
+  "feature2-desc": "Todos nuestros sitios se adaptan perfectamente a cualquier dispositivo.",
+  "feature3-title": "Optimizados",
+  "feature3-desc": "Sitios rápidos y optimizados para buscadores.",
+
+  "services-preview-title": "Nuestros Servicios",
+  "service1-title": "Página Simple",
+  "service2-title": "Página Tipo Sábana",
+  "service3-title": "Página Avanzada",
+  "view-all-services": "Ver todos los servicios",
+
+  "nav-home": "Inicio",
+  "nav-about": "Acerca de",
+  "nav-services": "Servicios",
+  "nav-contact": "Contacto",
+
+  "footer-about": "Acerca de",
+  "footer-services": "Servicios",
+  "footer-contact": "Contacto",
+  "footer-copyright": "© 2025 JH Proyectos - Todos los derechos reservados.",
+
+  "about-title": "Somos JH Proyectos",
+  "about-description": "Un equipo dedicado a diseñar soluciones web para empresas pequeñas, profesionales y startups. Nuestra misión es hacer que tu presencia online sea profesional y efectiva.",
+
+  "services-title": "Nuestros Servicios",
+  "services-subtitle": "Descubre cómo podemos ayudarte a destacar online.",
+  "service-landing-title": "Página Simple (Landing Page)",
+  "service-sheet-title": "Página Tipo Sábana",
+  "service-advanced-title": "Página Avanzada",
+  "service-portfolio-title": "Página Tipo Portfolio",
+  "service-store-title": "Página con Tienda",
+  "service-cms-title": "Página con CMS",
+
+  "service-landing-desc": "Página Simple de Presentación - Perfecta para promociones o lanzamientos rápidos.",
+  "service-sheet-desc": "Página Tipo Sábana - Todo tu contenido en una sola página extensa y organizada.",
+  "service-advanced-desc": "Página Avanzada - Dinámica, con sliders y elementos interactivos.",
+  "service-portfolio-desc": "Página Tipo Portfolio - Ideal para mostrar tus proyectos con subsecciones navegables.",
+  "service-store-desc": "Página con Tienda - Vende online con un catálogo y carrito integrados.",
+  "service-cms-desc": "Página con CMS - Actualiza tu contenido fácilmente con un sistema de gestión.",
+
+  "portfolio-project1": "Proyecto 1",
+  "portfolio-project2": "Proyecto 2",
+  "portfolio-project3": "Proyecto 3",
+
+  "portfolio-item-title": "Proyecto Ejemplo",
+  "portfolio-item-desc": "Un vistazo a cómo organizamos los detalles de tus trabajos.",
+
+  "contact-title": "Contáct  \"Un vistazo a cómo organizamos los detalles de tus trabajos.",
+
+  "contact-title": "Contáctanos",
+  "contact-subtitle": "Estamos listos para llevar tu proyecto al siguiente nivel.",
+  "contact-name": "Nombre",
+  "contact-email": "Email",
+  "contact-message": "Mensaje",
+  "contact-submit": "Enviar",
+
+  "404-title": "Página no encontrada",
+  "404-message": "Lo sentimos, la página que buscas no existe.",
+  "404-back": "Volver al inicio"
+}
+
