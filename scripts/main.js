@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Determinar la ruta base para cargar componentes
+  const basePath = getBasePath()
+
   // Cargar componentes
-  loadComponent("header-container", "components/header.html")
-  loadComponent("footer-container", "components/footer.html")
+  loadComponent("header-container", `${basePath}components/header.html`)
+  loadComponent("footer-container", `${basePath}components/footer.html`)
 
   // Inicializar tema
   initTheme()
@@ -19,13 +22,29 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounters()
 })
 
+// Función para determinar la ruta base
+function getBasePath() {
+  const path = window.location.pathname
+  // Si estamos en una subcarpeta (como /pages/), necesitamos volver a la raíz
+  if (path.includes("/pages/")) {
+    return "../"
+  }
+  // Si estamos en la raíz
+  return ""
+}
+
 // Función para cargar componentes HTML
 function loadComponent(containerId, componentPath) {
   const container = document.getElementById(containerId)
   if (!container) return
 
   fetch(componentPath)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      return response.text()
+    })
     .then((html) => {
       container.innerHTML = html
 
@@ -34,7 +53,7 @@ function loadComponent(containerId, componentPath) {
         setActiveNavLink()
       }
     })
-    .catch((error) => console.error("Error loading component:", error))
+    .catch((error) => console.error(`Error loading component ${componentPath}:`, error))
 }
 
 // Función para establecer el enlace de navegación activo
@@ -45,12 +64,14 @@ function setActiveNavLink() {
   navLinks.forEach((link) => {
     const linkPath = link.getAttribute("href")
 
+    // Extraer el nombre del archivo de la ruta actual
+    const currentFile = currentPath.split("/").pop()
+
+    // Extraer el nombre del archivo del enlace
+    const linkFile = linkPath.split("/").pop()
+
     // Verificar si la ruta actual coincide con el enlace
-    if (
-      currentPath === linkPath ||
-      (currentPath.includes(linkPath) && linkPath !== "/") ||
-      (currentPath === "/" && linkPath === "/index.html")
-    ) {
+    if (currentFile === linkFile || (currentPath.endsWith("/") && linkPath.includes("index.html"))) {
       link.classList.add("active")
     }
   })
@@ -61,6 +82,7 @@ function initTheme() {
   const themeToggle = document.getElementById("theme-toggle")
   const themeStylesheet = document.getElementById("theme-style")
   const themeIcon = document.querySelector(".theme-toggle-icon")
+  const basePath = getBasePath()
 
   // Verificar si hay un tema guardado en localStorage
   const savedTheme = localStorage.getItem("theme") || "light"
@@ -80,10 +102,10 @@ function initTheme() {
   // Función para establecer el tema
   function setTheme(theme) {
     if (theme === "dark") {
-      themeStylesheet.href = "/styles/dark-theme.css"
+      themeStylesheet.href = `${basePath}styles/dark-theme.css`
       themeIcon.textContent = "☀️"
     } else {
-      themeStylesheet.href = "/styles/light-theme.css"
+      themeStylesheet.href = `${basePath}styles/light-theme.css`
       themeIcon.textContent = "🌙"
     }
     localStorage.setItem("theme", theme)
@@ -123,14 +145,12 @@ function handleOrientation() {
 // Función para inicializar animaciones de scroll
 function initScrollAnimations() {
   // Implementa la lógica de inicialización de animaciones de scroll aquí
-  // Por ejemplo:
   console.log("Scroll animations initialized")
 }
 
 // Función para inicializar contadores
 function initCounters() {
   // Implementa la lógica de inicialización de contadores aquí
-  // Por ejemplo:
   console.log("Counters initialized")
 }
 
