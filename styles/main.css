@@ -38,6 +38,17 @@ body {
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
+/* Asegurar que los temas se apliquen correctamente */
+body.light-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.dark-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 main {
   flex: 1;
   padding-top: var(--header-height);
