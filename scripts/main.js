@@ -71,6 +71,8 @@ function initTheme() {
 
     setTheme(newTheme)
     localStorage.setItem("theme", newTheme)
+
+    console.log("Tema cambiado a:", newTheme) // Para depuración
   })
 
   // Función para establecer el tema
@@ -96,6 +98,24 @@ function initTheme() {
     setTimeout(() => {
       document.documentElement.style.removeProperty("--force-repaint")
     }, 10)
+
+    // Aplicar el tema a todos los iframes (si existen)
+    const iframes = document.querySelectorAll("iframe")
+    iframes.forEach((iframe) => {
+      try {
+        if (iframe.contentDocument) {
+          if (theme === "dark") {
+            iframe.contentDocument.body.classList.add("dark-theme")
+            iframe.contentDocument.body.classList.remove("light-theme")
+          } else {
+            iframe.contentDocument.body.classList.add("light-theme")
+            iframe.contentDocument.body.classList.remove("dark-theme")
+          }
+        }
+      } catch (e) {
+        console.log("No se pudo acceder al iframe:", e)
+      }
+    })
   }
 }
 
