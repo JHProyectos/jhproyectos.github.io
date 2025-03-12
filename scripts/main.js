@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Determinar la ruta base para cargar componentes
-  //const basePath = getBasePath()
-
   // Cargar componentes
   loadComponent("header-container", "https://jhproyectos.github.io/components/header.html")
   loadComponent("footer-container", "https://jhproyectos.github.io/components/footer.html")
@@ -21,17 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inicializar contadores
   initCounters()
 })
-
-// Función para determinar la ruta base
-/*function getBasePath() {
-  const path = window.location.pathname
-  // Si estamos en una subcarpeta (como /pages/), necesitamos volver a la raíz
-  if (path.includes("/pages/")) {
-    return "../"
-  }
-  // Si estamos en la raíz
-  return ""
-}*/
 
 // Función para cargar componentes HTML
 function loadComponent(containerId, componentPath) {
@@ -71,7 +57,6 @@ function initTheme() {
   const themeToggle = document.getElementById("theme-toggle")
   const themeStylesheet = document.getElementById("theme-style")
   const themeIcon = document.querySelector(".theme-toggle-icon")
-  //const basePath = getBasePath()
 
   // Verificar si hay un tema guardado en localStorage
   const savedTheme = localStorage.getItem("theme") || "light"
@@ -90,14 +75,27 @@ function initTheme() {
 
   // Función para establecer el tema
   function setTheme(theme) {
+    // Cambiar la hoja de estilo
     if (theme === "dark") {
       themeStylesheet.href = "https://jhproyectos.github.io/styles/dark-theme.css"
       themeIcon.textContent = "☀️"
+      document.body.classList.add("dark-theme")
+      document.body.classList.remove("light-theme")
     } else {
       themeStylesheet.href = "https://jhproyectos.github.io/styles/light-theme.css"
       themeIcon.textContent = "🌙"
+      document.body.classList.add("light-theme")
+      document.body.classList.remove("dark-theme")
     }
+
+    // Guardar el tema en localStorage
     localStorage.setItem("theme", theme)
+
+    // Forzar la aplicación de los estilos
+    document.documentElement.style.setProperty("--force-repaint", "true")
+    setTimeout(() => {
+      document.documentElement.style.removeProperty("--force-repaint")
+    }, 10)
   }
 }
 
@@ -134,14 +132,12 @@ function handleOrientation() {
 // Función para inicializar animaciones de scroll
 function initScrollAnimations() {
   // Implementa la lógica de inicialización de animaciones de scroll aquí
-  // Por ejemplo:
   console.log("Scroll animations initialized")
 }
 
 // Función para inicializar contadores
 function initCounters() {
   // Implementa la lógica de inicialización de contadores aquí
-  // Por ejemplo:
   console.log("Counters initialized")
 }
 
