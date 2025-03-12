@@ -1,188 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página con CMS - Actualiza tu contenido fácilmente con un sistema de gestión">
-    <meta name="keywords" content="CMS, sistema de gestión, contenido, JH Proyectos">
-    <title>Página con CMS | JH Proyectos</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/light-theme.css" id="theme-style">
-    <script src="/scripts/lang.js" defer></script>
-    <script src="/scripts/main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Página con CMS - Actualiza tu contenido fácilmente con un sistema de gestión">
+  <meta name="keywords" content="CMS, sistema de gestión, contenido, JH Proyectos">
+  <title>Página con CMS | JH Proyectos</title>
+  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
+  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
+  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
+  <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
+  <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
 </head>
 <body>
-    <!-- Header será cargado dinámicamente -->
-    <div id="header-container"></div>
+  <!-- Header será cargado dinámicamente -->
+  <div id="header-container"></div>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title" data-lang-key="service-cms-title">Página con CMS</h1>
-                <p class="page-subtitle" data-lang-key="service-cms-desc">Página con CMS - Actualiza tu contenido fácilmente con un sistema de gestión.</p>
-            </div>
-        </section>
+  <main>
+      <section class="page-header">
+          <div class="container">
+              <h1 class="page-title" data-lang-key="service-cms-title">Página con CMS</h1>
+              <p class="page-subtitle" data-lang-key="service-cms-desc">Página con CMS - Actualiza tu contenido fácilmente con un sistema de gestión.</p>
+          </div>
+      </section>
 
-        <section class="service-content">
-            <div class="container">
-                <!-- Demo de CMS -->
-                <div class="cms-demo">
-                    <h2>Demo de Panel de Administración</h2>
-                    
-                    <div class="cms-login">
-                        <div class="cms-login-form">
-                            <h3>Acceso al Panel</h3>
-                            <div class="form-group">
-                                <label for="username">Usuario</label>
-                                <input type="text" id="username" value="admin" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" id="password" value="demo123" readonly>
-                            </div>
-                            <button id="login-button" class="login-button">Iniciar sesión</button>
-                        </div>
-                    </div>
-                    
-                    <div id="cms-dashboard" class="cms-dashboard" style="display: none;">
-                        <div class="cms-sidebar">
-                            <div class="cms-user">
-                                <div class="cms-avatar">A</div>
-                                <div class="cms-username">Admin</div>
-                            </div>
-                            <ul class="cms-menu">
-                                <li class="cms-menu-item active">Dashboard</li>
-                                <li class="cms-menu-item">Páginas</li>
-                                <li class="cms-menu-item">Entradas</li>
-                                <li class="cms-menu-item">Medios</li>
-                                <li class="cms-menu-item">Comentarios</li>
-                                <li class="cms-menu-item">Usuarios</li>
-                                <li class="cms-menu-item">Configuración</li>
-                            </ul>
-                            <button id="logout-button" class="logout-button">Cerrar sesión</button>
-                        </div>
-                        <div class="cms-content">
-                            <div class="cms-header">
-                                <h3>Dashboard</h3>
-                                <div class="cms-actions">
-                                    <button class="cms-action-button">Nueva entrada</button>
-                                </div>
-                            </div>
-                            <div class="cms-widgets">
-                                <div class="cms-widget">
-                                    <h4>Resumen</h4>
-                                    <div class="cms-stats">
-                                        <div class="cms-stat">
-                                            <div class="cms-stat-number">12</div>
-                                            <div class="cms-stat-label">Páginas</div>
-                                        </div>
-                                        <div class="cms-stat">
-                                            <div class="cms-stat-number">24</div>
-                                            <div class="cms-stat-label">Entradas</div>
-                                        </div>
-                                        <div class="cms-stat">
-                                            <div class="cms-stat-number">8</div>
-                                            <div class="cms-stat-label">Comentarios</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cms-widget">
-                                    <h4>Actividad reciente</h4>
-                                    <ul class="cms-activity">
-                                        <li>Se publicó la página "Acerca de"</li>
-                                        <li>Se actualizó la entrada "Novedades"</li>
-                                        <li>Nuevo comentario en "Servicios"</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <section class="service-content">
+          <div class="container">
+              <!-- Botón para volver a servicios -->
+              <div class="back-to-services">
+                  <a href="https://jhproyectos.github.io/pages/services.html" class="secondary-button">
+                      <span>←</span> Volver a Servicios
+                  </a>
+              </div>
+              
+              <!-- Demo de CMS -->
+              <div class="cms-demo">
+                  <h2>Demo de Panel de Administración</h2>
+                  
+                  <div class="cms-login">
+                      <div class="cms-login-form">
+                          <h3>Acceso al Panel</h3>
+                          <div class="form-group">
+                              <label for="username">Usuario</label>
+                              <input type="text" id="username" value="admin" readonly>
+                          </div>
+                          <div class="form-group">
+                              <label for="password">Contraseña</label>
+                              <input type="password" id="password" value="demo123" readonly>
+                          </div>
+                          <button id="login-button" class="login-button">Iniciar sesión</button>
+                      </div>
+                  </div>
+                  
+                  <div id="cms-dashboard" class="cms-dashboard" style="display: none;">
+                      <div class="cms-sidebar">
+                          <div class="cms-user">
+                              <div class="cms-avatar">A</div>
+                              <div class="cms-username">Admin</div>
+                          </div>
+                          <ul class="cms-menu">
+                              <li class="cms-menu-item active">Dashboard</li>
+                              <li class="cms-menu-item">Páginas</li>
+                              <li class="cms-menu-item">Entradas</li>
+                              <li class="cms-menu-item">Medios</li>
+                              <li class="cms-menu-item">Comentarios</li>
+                              <li class="cms-menu-item">Usuarios</li>
+                              <li class="cms-menu-item">Configuración</li>
+                          </ul>
+                          <button id="logout-button" class="logout-button">Cerrar sesión</button>
+                      </div>
+                      <div class="cms-content">
+                          <div class="cms-header">
+                              <h3>Dashboard</h3>
+                              <div class="cms-actions">
+                                  <button class="cms-action-button">Nueva entrada</button>
+                              </div>
+                          </div>
+                          <div class="cms-widgets">
+                              <div class="cms-widget">
+                                  <h4>Resumen</h4>
+                                  <div class="cms-stats">
+                                      <div class="cms-stat">
+                                          <div class="cms-stat-number">12</div>
+                                          <div class="cms-stat-label">Páginas</div>
+                                      </div>
+                                      <div class="cms-stat">
+                                          <div class="cms-stat-number">24</div>
+                                          <div class="cms-stat-label">Entradas</div>
+                                      </div>
+                                      <div class="cms-stat">
+                                          <div class="cms-stat-number">8</div>
+                                          <div class="cms-stat-label">Comentarios</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="cms-widget">
+                                  <h4>Actividad reciente</h4>
+                                  <ul class="cms-activity">
+                                      <li>Se publicó la página "Acerca de"</li>
+                                      <li>Se actualizó la entrada "Novedades"</li>
+                                      <li>Nuevo comentario en "Servicios"</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-                <div class="service-grid">
-                    <div class="service-details">
-                        <h2>Características</h2>
-                        <ul class="feature-list">
-                            <li>Panel de administración intuitivo</li>
-                            <li>Editor de contenido visual</li>
-                            <li>Gestión de usuarios y permisos</li>
-                            <li>Publicación programada de contenido</li>
-                            <li>Biblioteca de medios</li>
-                            <li>Personalización de plantillas</li>
-                        </ul>
-                        
-                        <h2>Ideal para</h2>
-                        <ul class="ideal-list">
-                            <li>Blogs y sitios de noticias</li>
-                            <li>Sitios corporativos</li>
-                            <li>Portales educativos</li>
-                            <li>Sitios que requieren actualizaciones frecuentes</li>
-                            <li>Proyectos con múltiples editores</li>
-                        </ul>
-                        
-                        <a href="/pages/contact.html" class="cta-button">Solicitar presupuesto</a>
-                    </div>
-                    
-                    <div class="service-image-container">
-                        <img src="/images/cms-page.jpg" alt="Ejemplo de Página con CMS" class="service-detail-image">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+              <div class="service-grid">
+                  <div class="service-details">
+                      <h2>Características</h2>
+                      <ul class="feature-list">
+                          <li>Panel de administración intuitivo</li>
+                          <li>Editor de contenido visual</li>
+                          <li>Gestión de usuarios y permisos</li>
+                          <li>Publicación programada de contenido</li>
+                          <li>Biblioteca de medios</li>
+                          <li>Personalización de plantillas</li>
+                      </ul>
+                      
+                      <h2>Ideal para</h2>
+                      <ul class="ideal-list">
+                          <li>Blogs y sitios de noticias</li>
+                          <li>Sitios corporativos</li>
+                          <li>Portales educativos</li>
+                          <li>Sitios que requieren actualizaciones frecuentes</li>
+                          <li>Proyectos con múltiples editores</li>
+                      </ul>
+                      
+                      <a href="https://jhproyectos.github.io/pages/contact.html" class="cta-button">Solicitar presupuesto</a>
+                  </div>
+                  
+                  <div class="service-image-container">
+                      <img src="https://jhproyectos.github.io/images/cms-page.jpg" alt="Ejemplo de Página con CMS" class="service-detail-image">
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
 
-    <!-- Footer será cargado dinámicamente -->
-    <div id="footer-container"></div>
+  <!-- Footer será cargado dinámicamente -->
+  <div id="footer-container"></div>
 
-    <!-- WhatsApp Button -->
-    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
-        <img src="/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-    </a>
+  <!-- WhatsApp Button -->
+  <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+      <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  </a>
 
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle">
-        <span class="theme-toggle-icon">🌙</span>
-    </button>
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="theme-toggle">
+      <span class="theme-toggle-icon">🌙</span>
+  </button>
 
-    <!-- Language Selector (Mobile) -->
-    <div class="language-selector-mobile">
-        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
-    </div>
+  <!-- Language Selector (Mobile) -->
+  <div class="language-selector-mobile">
+      <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar demo de CMS
-            initCmsDemo();
-        });
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Inicializar demo de CMS
+          initCmsDemo();
+      });
 
-        function initCmsDemo() {
-            const loginButton = document.getElementById('login-button');
-            const logoutButton = document.getElementById('logout-button');
-            const cmsLogin = document.querySelector('.cms-login');
-            const cmsDashboard = document.getElementById('cms-dashboard');
-            
-            // Evento para iniciar sesión
-            loginButton.addEventListener('click', function() {
-                cmsLogin.style.display = 'none';
-                cmsDashboard.style.display = 'flex';
-            });
-            
-            // Evento para cerrar sesión
-            logoutButton.addEventListener('click', function() {
-                cmsDashboard.style.display = 'none';
-                cmsLogin.style.display = 'block';
-            });
-            
-            // Eventos para los elementos del menú
-            const menuItems = document.querySelectorAll('.cms-menu-item');
-            menuItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    menuItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        }
-    </script>
+      function initCmsDemo() {
+          const loginButton = document.getElementById('login-button');
+          const logoutButton = document.getElementById('logout-button');
+          const cmsLogin = document.querySelector('.cms-login');
+          const cmsDashboard = document.getElementById('cms-dashboard');
+          
+          // Evento para iniciar sesión
+          loginButton.addEventListener('click', function() {
+              cmsLogin.style.display = 'none';
+              cmsDashboard.style.display = 'flex';
+          });
+          
+          // Evento para cerrar sesión
+          logoutButton.addEventListener('click', function() {
+              cmsDashboard.style.display = 'none';
+              cmsLogin.style.display = 'block';
+          });
+          
+          // Eventos para los elementos del menú
+          const menuItems = document.querySelectorAll('.cms-menu-item');
+          menuItems.forEach(item => {
+              item.addEventListener('click', function() {
+                  menuItems.forEach(i => i.classList.remove('active'));
+                  this.classList.add('active');
+              });
+          });
+      }
+  </script>
 </body>
 </html>
 
