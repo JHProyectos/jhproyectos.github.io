@@ -1,0 +1,90 @@
+/* Estilos adicionales para asegurar que los temas se apliquen correctamente */
+
+/* Tema claro - Reforzar estilos */
+body.light-theme {
+  --bg-color: #f5f5f5 !important;
+  --text-color: #333333 !important;
+  --accent-color: #007bff !important;
+  --accent-hover: #0056b3 !important;
+  --secondary-bg: #ffffff !important;
+  --border-color: #dddddd !important;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+
+  background-color: #f5f5f5 !important;
+  color: #333333 !important;
+}
+
+body.light-theme header {
+  background-color: #ffffff !important;
+}
+
+body.light-theme .feature-card,
+body.light-theme .contact-form-container,
+body.light-theme .contact-info,
+body.light-theme footer,
+body.light-theme .page-header,
+body.light-theme .services-preview {
+  background-color: #ffffff !important;
+}
+
+body.light-theme .service-card {
+  background-color: #f5f5f5 !important;
+}
+
+/* Tema oscuro - Reforzar estilos */
+body.dark-theme {
+  --bg-color: #1a1a1a !important;
+  --text-color: #e0e0e0 !important;
+  --accent-color: #00c4ff !important;
+  --accent-hover: #0090c0 !important;
+  --secondary-bg: #2a2a2a !important;
+  --border-color: #444444 !important;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-theme header {
+  background-color: #2a2a2a !important;
+}
+
+body.dark-theme .feature-card,
+body.dark-theme .contact-form-container,
+body.dark-theme .contact-info,
+body.dark-theme footer,
+body.dark-theme .page-header,
+body.dark-theme .services-preview {
+  background-color: #2a2a2a !important;
+}
+
+body.dark-theme .service-card {
+  background-color: #1a1a1a !important;
+}
+
+/* Asegurar que los enlaces y textos tengan el color correcto */
+body.light-theme .nav-link,
+body.light-theme .footer-link {
+  color: #333333 !important;
+}
+
+body.dark-theme .nav-link,
+body.dark-theme .footer-link {
+  color: #e0e0e0 !important;
+}
+
+/* Asegurar que los inputs tengan el color de fondo correcto */
+body.light-theme input,
+body.light-theme textarea,
+body.light-theme select {
+  background-color: #f5f5f5 !important;
+  color: #333333 !important;
+}
+
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
