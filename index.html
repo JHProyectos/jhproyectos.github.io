@@ -22,6 +22,45 @@
     <script src="scripts/main.js" defer></script>
     <script src="scripts/image-protection.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <style>
+        /* Estilos adicionales para centrar el contenido del hero */
+        .hero .container {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .hero-content {
+            text-align: center;
+            margin-bottom: 2rem;
+            order: 1;
+        }
+        
+        .hero-image {
+            order: 2;
+            margin: 0 auto;
+        }
+        
+        .hero-buttons {
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            margin: 0 auto;
+        }
+        
+        /* Asegurar que estos estilos se apliquen en cualquier orientación */
+        @media (orientation: landscape) {
+            .hero .container {
+                flex-direction: column;
+            }
+            
+            .hero-content {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
 </head>
 <body class="light-theme">
     <!-- Header será cargado dinámicamente -->
@@ -35,7 +74,6 @@
                     <p class="hero-subtitle" data-lang-key="hero-subtitle">Creamos páginas web modernas y funcionales para tu negocio.</p>
                     <div class="hero-buttons">
                         <a href="pages/services.html" class="cta-button" data-lang-key="cta-button">Explora nuestros servicios</a>
-                        <a href="pages/contact.html" class="secondary-button">Contáctanos</a>
                     </div>
                 </div>
                 <div class="hero-image">
