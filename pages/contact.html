@@ -1,93 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta con JH Proyectos - Estamos listos para llevar tu proyecto al siguiente nivel">
-    <meta name="keywords" content="contacto, diseño web, formulario de contacto, JH Proyectos">
-    <title>Contacto | JH Proyectos</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/light-theme.css" id="theme-style">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <script src="../scripts/lang.js" defer></script>
-    <script src="../scripts/main.js" defer></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Contacta con JH Proyectos - Estamos listos para llevar tu proyecto al siguiente nivel">
+   <meta name="keywords" content="contacto, diseño web, formulario de contacto, JH Proyectos">
+   <title>Contacto | JH Proyectos</title>
+   <!-- Favicon -->
+   <link rel="icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
+   <link rel="shortcut icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
+   <!-- Estilos -->
+   <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
+   <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
+   <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
+   <link rel="stylesheet" href="https://jhproyectos.github.io/styles/theme-fix.css">
+   <!-- Scripts -->
+   <script src="https://jhproyectos.github.io/scripts/theme-global.js" defer></script>
+   <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
+   <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
 </head>
-<body>
-    <!-- Header será cargado dinámicamente -->
-    <div id="header-container"></div>
+<body class="light-theme">
+   <!-- Header será cargado dinámicamente -->
+   <div id="header-container"></div>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title" data-lang-key="contact-title">Contáctanos</h1>
-                <p class="page-subtitle" data-lang-key="contact-subtitle">Estamos listos para llevar tu proyecto al siguiente nivel.</p>
-            </div>
-        </section>
+   <main>
+       <section class="page-header">
+           <div class="container">
+               <h1 class="page-title" data-lang-key="contact-title">Contáctanos</h1>
+               <p class="page-subtitle" data-lang-key="contact-subtitle">Estamos listos para llevar tu proyecto al siguiente nivel.</p>
+           </div>
+       </section>
 
-        <section class="contact-content">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <h3>Dirección</h3>
-                            <p>Av. Ejemplo 1234, Ciudad</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Email</h3>
-                            <p>info@jhproyectos.com</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Teléfono</h3>
-                            <p>+54 3462 561503</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Horario</h3>
-                            <p>Lunes a Viernes: 9:00 - 18:00</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form-container">
-                        <form id="contact-form" class="contact-form">
-                            <div class="form-group">
-                                <label for="name" data-lang-key="contact-name">Nombre</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email" data-lang-key="contact-email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message" data-lang-key="contact-message">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="submit-button" data-lang-key="contact-submit">Enviar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+       <section class="contact-content">
+           <div class="container">
+               <div class="contact-grid">
+                   <div class="contact-info">
+                       <div class="contact-item">
+                           <h3 data-lang-key="contact-address-title">Dirección</h3>
+                           <p data-lang-key="contact-address">Av. Ejemplo 1234, Ciudad</p>
+                       </div>
+                       <div class="contact-item">
+                           <h3 data-lang-key="contact-email-title">Email</h3>
+                           <p data-lang-key="contact-email">info@jhproyectos.com</p>
+                       </div>
+                       <div class="contact-item">
+                           <h3 data-lang-key="contact-phone-title">Teléfono</h3>
+                           <p data-lang-key="contact-phone">+54 3462 561503</p>
+                       </div>
+                       <div class="contact-item">
+                           <h3 data-lang-key="contact-hours-title">Horario</h3>
+                           <p data-lang-key="contact-hours">Lunes a Viernes: 9:00 - 18:00</p>
+                       </div>
+                   </div>
+                   
+                   <div class="contact-form-container">
+                       <form id="contact-form" class="contact-form">
+                           <div class="form-group">
+                               <label for="name" data-lang-key="contact-name">Nombre</label>
+                               <input type="text" id="name" name="name" required>
+                           </div>
+                           
+                           <div class="form-group">
+                               <label for="email" data-lang-key="contact-email-label">Email</label>
+                               <input type="email" id="email" name="email" required>
+                           </div>
+                           
+                           <div class="form-group">
+                               <label for="message" data-lang-key="contact-message">Mensaje</label>
+                               <textarea id="message" name="message" rows="5" required></textarea>
+                           </div>
+                           
+                           <button type="submit" class="submit-button" data-lang-key="contact-submit">Enviar</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </section>
+   </main>
 
-    <!-- Footer será cargado dinámicamente -->
-    <div id="footer-container"></div>
+   <!-- Footer será cargado dinámicamente -->
+   <div id="footer-container"></div>
 
-    <!-- WhatsApp Button -->
-    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
-        <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-    </a>
+   <!-- WhatsApp Button -->
+   <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+       <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+   </a>
 
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle">
-        <span class="theme-toggle-icon">🌙</span>
-    </button>
+   <!-- Theme Toggle Button -->
+   <button id="theme-toggle" class="theme-toggle">
+       <span class="theme-toggle-icon">🌙</span>
+   </button>
 
-    <!-- Language Selector (Mobile) -->
-    <div class="language-selector-mobile">
-        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
-    </div>
+   <!-- Language Selector (Mobile) -->
+   <div class="language-selector-mobile">
+       <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+   </div>
 </body>
 </html>
 
