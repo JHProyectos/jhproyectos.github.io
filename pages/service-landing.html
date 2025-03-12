@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Página Simple de Presentación - Perfecta para promociones o lanzamientos rápidos">
-  <meta name="keywords" content="landing page, página simple, presentación, JH Proyectos">
-  <title>Página Simple | JH Proyectos</title>
-  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
-  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
-  <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
-  <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
-  <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Página Simple de Presentación - Perfecta para promociones o lanzamientos rápidos">
+ <meta name="keywords" content="landing page, página simple, presentación, JH Proyectos">
+ <title>Página Simple | JH Proyectos</title>
+ <!-- Favicon -->
+ <link rel="icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
+ <link rel="shortcut icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
+ <!-- Estilos -->
+ <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
+ <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
+ <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
+ <link rel="stylesheet" href="https://jhproyectos.github.io/styles/theme-fix.css">
+ <link rel="stylesheet" href="https://jhproyectos.github.io/styles/image-protection.css">
+ <!-- Scripts -->
+ <script src="https://jhproyectos.github.io/scripts/theme-global.js" defer></script>
+ <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
+ <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
+ <script src="https://jhproyectos.github.io/scripts/image-protection.js" defer></script>
 </head>
-<body>
-  <!-- Header será cargado dinámicamente -->
-  <div id="header-container"></div>
+<body class="light-theme">
+ <!-- Header será cargado dinámicamente -->
+ <div id="header-container"></div>
 
-  <main>
-      <section class="page-header">
-          <div class="container">
-              <h1 class="page-title" data-lang-key="service-landing-title">Página Simple (Landing Page)</h1>
-              <p class="page-subtitle" data-lang-key="service-landing-desc">Página Simple de Presentación - Perfecta para promociones o lanzamientos rápidos.</p>
-          </div>
-      </section>
+ <main>
+     <section class="page-header">
+         <div class="container">
+             <h1 class="page-title" data-lang-key="service-landing-title">Página Simple (Landing Page)</h1>
+             <p class="page-subtitle" data-lang-key="service-landing-desc">Página Simple de Presentación - Perfecta para promociones o lanzamientos rápidos.</p>
+         </div>
+     </section>
 
-      <section class="service-content">
-          <div class="container">
-              <!-- Botón para volver a servicios -->
-              <div class="back-to-services">
-                  <a href="https://jhproyectos.github.io/pages/services.html" class="secondary-button">
-                      <span>←</span> Volver a Servicios
-                  </a>
-              </div>
-              
-              <div class="service-grid">
-                  <div class="service-details">
-                      <h2>Características</h2>
-                      <ul class="feature-list">
-                          <li>Diseño atractivo y enfocado en conversión</li>
-                          <li>Una sola página con toda la información necesaria</li>
-                          <li>Llamadas a la acción estratégicamente ubicadas</li>
-                          <li>Optimizada para dispositivos móviles</li>
-                          <li>Carga rápida para mejor experiencia de usuario</li>
-                          <li>Integración con redes sociales</li>
-                      </ul>
-                      
-                      <h2>Ideal para</h2>
-                      <ul class="ideal-list">
-                          <li>Promociones temporales</li>
-                          <li>Lanzamiento de productos</li>
-                          <li>Eventos específicos</li>
-                          <li>Campañas de marketing</li>
-                          <li>Profesionales independientes</li>
-                      </ul>
-                      
-                      <a href="https://jhproyectos.github.io/pages/contact.html" class="cta-button">Solicitar presupuesto</a>
-                  </div>
-                  
-                  <div class="service-image-container">
-                      <img src="https://jhproyectos.github.io/images/landing-page.jpg" alt="Ejemplo de Landing Page" class="service-detail-image">
-                  </div>
-              </div>
-          </div>
-      </section>
-  </main>
+     <section class="service-content">
+         <div class="container">
+             <!-- Botón para volver a servicios -->
+             <div class="back-to-services">
+                 <a href="https://jhproyectos.github.io/pages/services.html" class="secondary-button" data-lang-key="back-to-services">
+                     <span>←</span> Volver a Servicios
+                 </a>
+             </div>
+             
+             <div class="service-grid">
+                 <div class="service-details">
+                     <h2 data-lang-key="service-features-title">Características</h2>
+                     <ul class="feature-list">
+                         <li data-lang-key="service-landing-feature1">Diseño atractivo y enfocado en conversión</li>
+                         <li data-lang-key="service-landing-feature2">Una sola página con toda la información necesaria</li>
+                         <li data-lang-key="service-landing-feature3">Llamadas a la acción estratégicamente ubicadas</li>
+                         <li data-lang-key="service-landing-feature4">Optimizada para dispositivos móviles</li>
+                         <li data-lang-key="service-landing-feature5">Carga rápida para mejor experiencia de usuario</li>
+                         <li data-lang-key="service-landing-feature6">Integración con redes sociales</li>
+                     </ul>
+                     
+                     <h2 data-lang-key="service-ideal-title">Ideal para</h2>
+                     <ul class="ideal-list">
+                         <li data-lang-key="service-landing-ideal1">Promociones temporales</li>
+                         <li data-lang-key="service-landing-ideal2">Lanzamiento de productos</li>
+                         <li data-lang-key="service-landing-ideal3">Eventos específicos</li>
+                         <li data-lang-key="service-landing-ideal4">Campañas de marketing</li>
+                         <li data-lang-key="service-landing-ideal5">Profesionales independientes</li>
+                     </ul>
+                     
+                     <a href="https://jhproyectos.github.io/pages/contact.html" class="cta-button" data-lang-key="request-quote">Solicitar presupuesto</a>
+                 </div>
+                 
+                 <div class="service-image-container">
+                     <img src="https://jhproyectos.github.io/images/landing-page.jpg" alt="Ejemplo de Landing Page" class="service-detail-image">
+                 </div>
+             </div>
+         </div>
+     </section>
+ </main>
 
-  <!-- Footer será cargado dinámicamente -->
-  <div id="footer-container"></div>
+ <!-- Footer será cargado dinámicamente -->
+ <div id="footer-container"></div>
 
-  <!-- WhatsApp Button -->
-  <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
-      <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
-  </a>
+ <!-- WhatsApp Button -->
+ <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+     <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+ </a>
 
-  <!-- Theme Toggle Button -->
-  <button id="theme-toggle" class="theme-toggle">
-      <span class="theme-toggle-icon">🌙</span>
-  </button>
+ <!-- Theme Toggle Button -->
+ <button id="theme-toggle" class="theme-toggle">
+     <span class="theme-toggle-icon">🌙</span>
+ </button>
 
-  <!-- Language Selector (Mobile) -->
-  <div class="language-selector-mobile">
-      <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
-  </div>
+ <!-- Language Selector (Mobile) -->
+ <div class="language-selector-mobile">
+     <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+ </div>
 </body>
 </html>
 
