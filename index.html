@@ -10,27 +10,85 @@
     <link rel="icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
     <link rel="shortcut icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
     <!-- Estilos -->
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/theme-fix.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/image-protection.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/theme-fix.css">
+    <link rel="stylesheet" href="styles/image-protection.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <!-- Scripts -->
-    <script src="https://jhproyectos.github.io/scripts/theme-global.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/image-protection.js" defer></script>
+    <script src="scripts/theme-global.js" defer></script>
+    <script src="scripts/lang.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/image-protection.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
 </head>
 <body class="light-theme">
-    <!-- El resto del contenido permanece igual -->
     <!-- Header será cargado dinámicamente -->
     <div id="header-container"></div>
 
     <main>
-        <!-- Contenido principal -->
-        <!-- ... -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" data-lang-key="hero-title">Bienvenidos a JH Proyectos</h1>
+                    <p class="hero-subtitle" data-lang-key="hero-subtitle">Creamos páginas web modernas y funcionales para tu negocio.</p>
+                    <div class="hero-buttons">
+                        <a href="pages/services.html" class="cta-button" data-lang-key="cta-button">Explora nuestros servicios</a>
+                        <a href="pages/contact.html" class="secondary-button">Contáctanos</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="placeholder.svg?height=400&width=500" alt="Diseño Web Responsive" class="responsive-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="features-title" data-aos="fade-up">¿Por qué elegirnos?</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">🚀</div>
+                        <h3 data-lang-key="feature1-title">Diseño Moderno</h3>
+                        <p data-lang-key="feature1-desc">Creamos sitios web con diseños actuales y atractivos.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">📱</div>
+                        <h3 data-lang-key="feature2-title">Responsive</h3>
+                        <p data-lang-key="feature2-desc">Todos nuestros sitios se adaptan perfectamente a cualquier dispositivo.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-lang-key="feature3-title">Optimizados</h3>
+                        <p data-lang-key="feature3-desc">Sitios rápidos y optimizados para buscadores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="services-preview-title" data-aos="fade-up">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <a href="pages/service-landing.html" class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/landing-page.jpg" alt="Landing Page" class="service-image">
+                        <h3 data-lang-key="service1-title">Página Simple</h3>
+                    </a>
+                    <a href="pages/service-sheet.html" class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images/sheet-page.jpg" alt="Página Tipo Sábana" class="service-image">
+                        <h3 data-lang-key="service2-title">Página Tipo Sábana</h3>
+                    </a>
+                    <a href="pages/service-advanced.html" class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="images/advanced-page.jpg" alt="Página Avanzada" class="service-image">
+                        <h3 data-lang-key="service3-title">Página Avanzada</h3>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <a href="pages/services.html" class="secondary-button" data-lang-key="view-all-services" data-aos="fade-up" data-aos-delay="400">Ver todos los servicios</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer será cargado dinámicamente -->
@@ -38,7 +96,7 @@
 
     <!-- WhatsApp Button -->
     <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
-        <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+        <img src="images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
     </a>
 
     <!-- Theme Toggle Button -->
@@ -79,4 +137,3 @@
     </script>
 </body>
 </html>
-
