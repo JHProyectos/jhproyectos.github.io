@@ -863,6 +863,22 @@ select:focus {
   margin: 1.5rem auto 0;
 }
 
+/* Back to services button */
+.back-to-services {
+  margin-bottom: 2rem;
+}
+
+.back-to-services .secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-to-services .secondary-button span {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 /* Responsive Styles - Básicos (el resto está en responsive.css) */
 @media (max-width: 992px) {
   .nav-menu {
