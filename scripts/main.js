@@ -1,227 +1,210 @@
+// Configuración base
+const BASE_URL = "https://jhproyectos.github.io"
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar componentes
-  loadComponent("header-container", "https://jhproyectos.github.io/components/header.html")
-  loadComponent("footer-container", "https://jhproyectos.github.io/components/footer.html")
-  loadComponent("floating-buttons-container", "https://jhproyectos.github.io/components/floating-buttons.html")
+  console.log("Iniciando carga de componentes...")
 
-  // Inicializar tema
-  initTheme()
+  // Verificar que estamos en el dominio correcto
+  const currentDomain = window.location.hostname
+  console.log("Dominio actual:", currentDomain)
 
-  // Inicializar menú móvil
-  initMobileMenu()
-
-  // Manejar orientación
-  handleOrientation()
-
-  // Inicializar animaciones de scroll
-  initScrollAnimations()
-
-  // Inicializar contadores
-  initCounters()
+  // Cargar componentes con manejo de errores mejorado
+  Promise.all([
+    loadComponent("header-container", `${BASE_URL}/components/header.html`),
+    loadComponent("footer-container", `${BASE_URL}/components/footer.html`),
+    loadComponent("floating-buttons-container", `${BASE_URL}/components/floating-buttons.html`),
+  ])
+    .then(() => {
+      console.log("Todos los componentes cargados correctamente")
+      // Inicializar funcionalidades después de cargar componentes
+      initTheme()
+      initMobileMenu()
+      handleOrientation()
+      initScrollAnimations()
+      initCounters()
+    })
+    .catch((error) => {
+      console.error("Error cargando componentes:", error)
+    })
 })
 
-// Función para cargar componentes HTML
-function loadComponent(containerId, componentPath) {
-  const container = document.getElementById(containerId)
-  if (!container) {
-    console.warn(`Contenedor #${containerId} no encontrado en el documento`)
+// Función mejorada para cargar componentes
+async function loadComponent(containerId, componentPath) {
+  console.log(`Intentando cargar ${containerId} desde ${componentPath}`)
 
-    // Si el contenedor no existe, créalo para los botones flotantes
-    if (containerId === "floating-buttons-container") {
-      console.log("Creando contenedor de botones flotantes")
-      const floatingContainer = document.createElement("div")
-      floatingContainer.id = "floating-buttons-container"
-      document.body.appendChild(floatingContainer)
-
-      fetch(componentPath)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`Error cargando ${componentPath}: ${response.status}`)
-          }
-          return response.text()
-        })
-        .then((html) => {
-          floatingContainer.innerHTML = html
-          console.log("Botones flotantes cargados correctamente")
-
-          // Reinicializar los eventos después de cargar los botones
-          initTheme()
-        })
-        .catch((error) => console.error("Error cargando botones flotantes:", error))
+  try {
+    // Verificar/crear contenedor
+    let container = document.getElementById(containerId)
+    if (!container) {
+      console.log(`Creando contenedor para ${containerId}`)
+      container = document.createElement("div")
+      container.id = containerId
+      document.body.appendChild(container)
     }
-    return
+
+    // Cargar componente
+    const response = await fetch(componentPath)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const html = await response.text()
+    container.innerHTML = html
+    console.log(`Componente ${containerId} cargado exitosamente`)
+
+    // Inicializaciones específicas post-carga
+    if (containerId === "header-container") {
+      setActiveNavLink()
+    } else if (containerId === "floating-buttons-container") {
+      initTheme()
+    }
+
+    return true
+  } catch (error) {
+    console.error(`Error cargando ${containerId}:`, error)
+    // Mostrar mensaje de error al usuario
+    const container = document.getElementById(containerId)
+    if (container) {
+      container.innerHTML = `
+        <div style="padding: 1rem; background-color: #fee; color: #c00; border: 1px solid #fcc;">
+          Error cargando componente. Por favor, recarga la página.
+        </div>
+      `
+    }
+    throw error
   }
-
-  console.log(`Contenedor #${containerId} encontrado, obteniendo contenido de ${componentPath}`)
-
-  fetch(componentPath)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error cargando ${componentPath}: ${response.status}`)
-      }
-      return response.text()
-    })
-    .then((html) => {
-      container.innerHTML = html
-      console.log(`Componente ${containerId} cargado correctamente`)
-
-      // Si es el header, inicializar la navegación activa
-      if (containerId === "header-container") {
-        setActiveNavLink()
-      }
-
-      // Si son los botones flotantes, reinicializar los eventos
-      if (containerId === "floating-buttons-container") {
-        initTheme()
-      }
-    })
-    .catch((error) => console.error(`Error cargando componente ${componentPath}:`, error))
 }
 
-// Función para establecer el enlace de navegación activo
+// Resto de funciones actualizadas con mejor manejo de errores...
 function setActiveNavLink() {
-  const currentPath = window.location.pathname
-  const navLinks = document.querySelectorAll(".nav-link")
+  try {
+    const currentPath = window.location.pathname
+    const navLinks = document.querySelectorAll(".nav-link")
 
-  navLinks.forEach((link) => {
-    const linkPath = link.getAttribute("href")
-
-    // Verificar si la ruta actual coincide con el enlace
-    if (window.location.href === linkPath || (currentPath === "/" && linkPath.includes("index.html"))) {
-      link.classList.add("active")
-    }
-  })
+    navLinks.forEach((link) => {
+      const linkPath = link.getAttribute("href")
+      if (window.location.href === linkPath || (currentPath === "/" && linkPath.includes("index.html"))) {
+        link.classList.add("active")
+      }
+    })
+  } catch (error) {
+    console.error("Error en setActiveNavLink:", error)
+  }
 }
 
-// Función para inicializar el tema
 function initTheme() {
-  const themeToggle = document.getElementById("theme-toggle")
-  if (!themeToggle) {
-    console.warn("Botón de cambio de tema no encontrado")
-    return // Salir si el botón no existe todavía
+  try {
+    const themeToggle = document.getElementById("theme-toggle")
+    if (!themeToggle) {
+      console.warn("Botón de tema no encontrado")
+      return
+    }
+
+    const themeStylesheet = document.getElementById("theme-style")
+    const themeIcon = document.querySelector(".theme-toggle-icon")
+
+    if (!themeStylesheet || !themeIcon) {
+      console.warn("Elementos de tema no encontrados")
+      return
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "light"
+    setTheme(savedTheme)
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = localStorage.getItem("theme") || "light"
+      const newTheme = currentTheme === "light" ? "dark" : "light"
+      setTheme(newTheme)
+    })
+  } catch (error) {
+    console.error("Error en initTheme:", error)
   }
+}
 
-  const themeStylesheet = document.getElementById("theme-style")
-  const themeIcon = document.querySelector(".theme-toggle-icon")
+function setTheme(theme) {
+  try {
+    const themeStylesheet = document.getElementById("theme-style")
+    const themeIcon = document.querySelector(".theme-toggle-icon")
 
-  if (!themeStylesheet || !themeIcon) {
-    console.warn("Hoja de estilo del tema o icono no encontrados")
-    return
-  }
-
-  // Verificar si hay un tema guardado en localStorage
-  const savedTheme = localStorage.getItem("theme") || "light"
-  console.log(`Aplicando tema guardado: ${savedTheme}`)
-
-  // Aplicar tema guardado
-  setTheme(savedTheme)
-
-  // Evento para cambiar el tema
-  themeToggle.addEventListener("click", () => {
-    const currentTheme = localStorage.getItem("theme") || "light"
-    const newTheme = currentTheme === "light" ? "dark" : "light"
-
-    setTheme(newTheme)
-    localStorage.setItem("theme", newTheme)
-
-    console.log("Tema cambiado a:", newTheme)
-  })
-
-  // Función para establecer el tema
-  function setTheme(theme) {
-    // Cambiar la hoja de estilo
     if (theme === "dark") {
-      themeStylesheet.href = "https://jhproyectos.github.io/styles/dark-theme.css"
+      themeStylesheet.href = `${BASE_URL}/styles/dark-theme.css`
       themeIcon.textContent = "☀️"
       document.body.classList.add("dark-theme")
       document.body.classList.remove("light-theme")
     } else {
-      themeStylesheet.href = "https://jhproyectos.github.io/styles/light-theme.css"
+      themeStylesheet.href = `${BASE_URL}/styles/light-theme.css`
       themeIcon.textContent = "🌙"
       document.body.classList.add("light-theme")
       document.body.classList.remove("dark-theme")
     }
 
-    // Guardar el tema en localStorage
     localStorage.setItem("theme", theme)
-
-    // Forzar la aplicación de los estilos
-    document.documentElement.style.setProperty("--force-repaint", "true")
-    setTimeout(() => {
-      document.documentElement.style.removeProperty("--force-repaint")
-    }, 10)
-
-    // Aplicar el tema a todos los iframes (si existen)
-    const iframes = document.querySelectorAll("iframe")
-    iframes.forEach((iframe) => {
-      try {
-        if (iframe.contentDocument) {
-          if (theme === "dark") {
-            iframe.contentDocument.body.classList.add("dark-theme")
-            iframe.contentDocument.body.classList.remove("light-theme")
-          } else {
-            iframe.contentDocument.body.classList.add("light-theme")
-            iframe.contentDocument.body.classList.remove("dark-theme")
-          }
-        }
-      } catch (e) {
-        console.log("No se pudo acceder al iframe:", e)
-      }
-    })
+    console.log("Tema aplicado:", theme)
+  } catch (error) {
+    console.error("Error aplicando tema:", error)
   }
 }
 
-// Función para inicializar el menú móvil
 function initMobileMenu() {
-  document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("mobile-menu-button") || e.target.closest(".mobile-menu-button")) {
-      const navMenu = document.querySelector(".nav-menu")
-      if (navMenu) {
-        navMenu.classList.toggle("active")
+  try {
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("mobile-menu-button") || e.target.closest(".mobile-menu-button")) {
+        const navMenu = document.querySelector(".nav-menu")
+        if (navMenu) {
+          navMenu.classList.toggle("active")
+        }
+      }
+    })
+  } catch (error) {
+    console.error("Error en initMobileMenu:", error)
+  }
+}
+
+function handleOrientation() {
+  try {
+    const checkOrientation = () => {
+      if (window.innerHeight > window.innerWidth) {
+        document.body.classList.add("portrait")
+        document.body.classList.remove("landscape")
+      } else {
+        document.body.classList.add("landscape")
+        document.body.classList.remove("portrait")
       }
     }
-  })
-}
 
-// Función para manejar cambios de orientación
-function handleOrientation() {
-  const checkOrientation = () => {
-    if (window.innerHeight > window.innerWidth) {
-      document.body.classList.add("portrait")
-      document.body.classList.remove("landscape")
-    } else {
-      document.body.classList.add("landscape")
-      document.body.classList.remove("portrait")
-    }
+    checkOrientation()
+    window.addEventListener("resize", checkOrientation)
+    window.addEventListener("orientationchange", checkOrientation)
+  } catch (error) {
+    console.error("Error en handleOrientation:", error)
   }
-
-  // Comprobar orientación inicial
-  checkOrientation()
-
-  // Escuchar cambios de orientación
-  window.addEventListener("resize", checkOrientation)
-  window.addEventListener("orientationchange", checkOrientation)
 }
 
-// Función para inicializar animaciones de scroll
+let AOS // Declare AOS here
+
 function initScrollAnimations() {
-  // Verificar si AOS está disponible
-  let AOS // Declare AOS here
-  if (typeof AOS !== "undefined") {
-    AOS.init({
-      duration: 800,
-      easing: "ease-out",
-      once: true,
-      disable: "mobile", // Deshabilitar en móviles para mejor rendimiento
-    })
-    console.log("AOS inicializado")
-  } else {
-    console.log("AOS no disponible")
+  try {
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 800,
+        easing: "ease-out",
+        once: true,
+        disable: "mobile",
+      })
+      console.log("AOS inicializado")
+    } else {
+      console.warn("AOS no disponible")
+    }
+  } catch (error) {
+    console.error("Error inicializando AOS:", error)
   }
 }
 
-// Función para inicializar contadores
 function initCounters() {
-  // Implementa la lógica de inicialización de contadores aquí
-  console.log("Contadores inicializados")
+  try {
+    console.log("Contadores inicializados")
+  } catch (error) {
+    console.error("Error en initCounters:", error)
+  }
 }
+
