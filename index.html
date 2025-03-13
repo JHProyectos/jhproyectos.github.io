@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
    <!-- <meta name="description" content="JH Proyectos - Creamos páginas web modernas y funcionales para tu negocio"> -->
+    <meta name="description" content="JH Proyectos - Creamos páginas web modernas y funcionales para tu negocio">
     <meta name="keywords" content="diseño web, páginas web, desarrollo web, sitios web, JH Proyectos">
     <title>JH Proyectos - Diseño Web Profesional</title>
     <!-- Favicon -->
@@ -28,8 +29,6 @@
     <script src="scripts/main.js" defer></script>
     <script src="scripts/image-protection.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-
-
     <style>
         /* Estilos adicionales para centrar el contenido del hero */
         .hero .container {
@@ -84,7 +83,9 @@
                         <a href="pages/services.html" class="cta-button" data-lang-key="cta-button">Explora nuestros servicios</a>
                     </div>
                 </div>
-               
+                <div class="hero-image">
+                    <img src="placeholder.svg?height=400&width=500" alt="Diseño Web Responsive" class="responsive-image">
+                </div>
             </div>
         </section>
 
@@ -135,22 +136,14 @@
         </section>
     </main>
 
-   <!-- Footer será cargado dinámicamente -->
-   <div id="footer-container"></div>
+    <!-- Footer será cargado dinámicamente -->
+    <div id="footer-container"></div>
 
-   <!-- Los botones flotantes serán cargados dinámicamente -->
-   <div id="floating-buttons-container"></div>
+    <!-- Los botones flotantes serán cargados dinámicamente -->
+    <div id="floating-buttons-container"></div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Inicializar AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            disable: 'mobile' // Deshabilitar en móviles para mejor rendimiento
-        });
-        
         // Comprobar orientación y ajustar clases
         checkOrientation();
         window.addEventListener('resize', checkOrientation);
