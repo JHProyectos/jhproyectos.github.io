@@ -14,20 +14,21 @@
     <meta name="keywords" content="diseño web, páginas web, desarrollo web, sitios web, JH Proyectos">
     <title>JH Proyectos - Diseño Web Profesional</title>
     <!-- Favicon -->
-    <link rel="icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
-    <link rel="shortcut icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
+    <link rel="icon" href="images/logo-2.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="images/logo-2.jpg" type="image/jpeg">
     <!-- Estilos -->
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/theme-fix.css">
-    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/image-protection.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/theme-fix.css">
+    <link rel="stylesheet" href="styles/image-protection.css">
+    <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <!-- Scripts -->
-    <script src="https://jhproyectos.github.io/scripts/theme-global.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
-    <script src="https://jhproyectos.github.io/scripts/image-protection.js" defer></script>
+    <script src="scripts/theme-global.js" defer></script>
+    <script src="scripts/lang.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/image-protection.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <style>
         /* Estilos adicionales para centrar el contenido del hero */
@@ -67,6 +68,67 @@
                 margin-bottom: 2rem;
             }
         }
+        
+        /* Estilos para indicadores de carga y mensajes de error */
+        .loading-indicator {
+            padding: 1rem;
+            text-align: center;
+            color: #666;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+        
+        .error-message {
+            padding: 1rem;
+            text-align: center;
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .error-message button {
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .global-error {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .error-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+        }
+        
+        .error-content button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="light-theme">
@@ -82,6 +144,9 @@
                     <div class="hero-buttons">
                         <a href="pages/services.html" class="cta-button" data-lang-key="cta-button">Explora nuestros servicios</a>
                     </div>
+                </div>
+                <div class="hero-image">
+                    <img src="placeholder.svg?height=400&width=500" alt="Diseño Web Responsive" class="responsive-image">
                 </div>
             </div>
         </section>
@@ -136,35 +201,8 @@
     <!-- Footer será cargado dinámicamente -->
     <div id="footer-container"></div>
 
-    <!-- Los botones flotantes serán cargados dinámicamente (corregido el ID) -->
+    <!-- Los botones flotantes serán cargados dinámicamente -->
     <div id="floating-buttons-container"></div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Inicializar AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            disable: 'mobile' // Deshabilitar en móviles para mejor rendimiento
-        });
-        
-        // Comprobar orientación y ajustar clases
-        checkOrientation();
-        window.addEventListener('resize', checkOrientation);
-        window.addEventListener('orientationchange', checkOrientation);
-        
-        function checkOrientation() {
-            if (window.innerHeight > window.innerWidth) {
-                document.body.classList.add('portrait');
-                document.body.classList.remove('landscape');
-            } else {
-                document.body.classList.add('landscape');
-                document.body.classList.remove('portrait');
-            }
-        }
-    });
-    </script>
 </body>
 </html>
 
