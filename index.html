@@ -17,17 +17,17 @@
     <link rel="icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
     <link rel="shortcut icon" href="https://jhproyectos.github.io/images/logo-2.jpg" type="image/jpeg">
     <!-- Estilos -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/light-theme.css" id="theme-style">
-    <link rel="stylesheet" href="styles/responsive.css">
-    <link rel="stylesheet" href="styles/theme-fix.css">
-    <link rel="stylesheet" href="styles/image-protection.css">
+    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/main.css">
+    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/light-theme.css" id="theme-style">
+    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/responsive.css">
+    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/theme-fix.css">
+    <link rel="stylesheet" href="https://jhproyectos.github.io/styles/image-protection.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <!-- Scripts -->
-    <script src="scripts/theme-global.js" defer></script>
-    <script src="scripts/lang.js" defer></script>
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/image-protection.js" defer></script>
+    <script src="https://jhproyectos.github.io/scripts/theme-global.js" defer></script>
+    <script src="https://jhproyectos.github.io/scripts/lang.js" defer></script>
+    <script src="https://jhproyectos.github.io/scripts/main.js" defer></script>
+    <script src="https://jhproyectos.github.io/scripts/image-protection.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
     <style>
         /* Estilos adicionales para centrar el contenido del hero */
@@ -139,11 +139,19 @@
     <!-- Footer será cargado dinámicamente -->
     <div id="footer-container"></div>
 
-    <!-- Los botones flotantes serán cargados dinámicamente -->
+    <!-- Los botones flotantes serán cargados dinámicamente (corregido el ID) -->
     <div id="floating-buttons-container"></div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            disable: 'mobile' // Deshabilitar en móviles para mejor rendimiento
+        });
+        
         // Comprobar orientación y ajustar clases
         checkOrientation();
         window.addEventListener('resize', checkOrientation);
