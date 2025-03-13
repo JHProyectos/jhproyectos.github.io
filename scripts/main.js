@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cargar componentes
   loadComponent("header-container", "https://jhproyectos.github.io/components/header.html")
   loadComponent("footer-container", "https://jhproyectos.github.io/components/footer.html")
+  loadComponent("floating-buttons-container", "https://jhproyectos.github.io/components/floating-buttons.html")
 
   // Inicializar tema
   initTheme()
@@ -22,7 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // Función para cargar componentes HTML
 function loadComponent(containerId, componentPath) {
   const container = document.getElementById(containerId)
-  if (!container) return
+  if (!container) {
+    // Si el contenedor no existe, créalo para los botones flotantes
+    if (containerId === "floating-buttons-container") {
+      const floatingContainer = document.createElement("div")
+      floatingContainer.id = "floating-buttons-container"
+      document.body.appendChild(floatingContainer)
+
+      fetch(componentPath)
+        .then((response) => response.text())
+        .then((html) => {
+          floatingContainer.innerHTML = html
+
+          // Reinicializar los eventos después de cargar los botones
+          initTheme()
+        })
+        .catch((error) => console.error("Error loading component:", error))
+    }
+    return
+  }
 
   fetch(componentPath)
     .then((response) => response.text())
@@ -32,6 +51,11 @@ function loadComponent(containerId, componentPath) {
       // Si es el header, inicializar la navegación activa
       if (containerId === "header-container") {
         setActiveNavLink()
+      }
+
+      // Si son los botones flotantes, reinicializar los eventos
+      if (containerId === "floating-buttons-container") {
+        initTheme()
       }
     })
     .catch((error) => console.error("Error loading component:", error))
@@ -55,6 +79,8 @@ function setActiveNavLink() {
 // Función para inicializar el tema
 function initTheme() {
   const themeToggle = document.getElementById("theme-toggle")
+  if (!themeToggle) return // Salir si el botón no existe todavía
+
   const themeStylesheet = document.getElementById("theme-style")
   const themeIcon = document.querySelector(".theme-toggle-icon")
 
@@ -152,7 +178,15 @@ function handleOrientation() {
 // Función para inicializar animaciones de scroll
 function initScrollAnimations() {
   // Implementa la lógica de inicialización de animaciones de scroll aquí
-  console.log("Scroll animations initialized")
+  let AOS // Declare AOS here
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 800,
+      easing: "ease-out",
+      once: true,
+      disable: "mobile", // Deshabilitar en móviles para mejor rendimiento
+    })
+  }
 }
 
 // Función para inicializar contadores
