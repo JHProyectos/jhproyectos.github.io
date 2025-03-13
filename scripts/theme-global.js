@@ -24,11 +24,13 @@ function applyThemeFromStorage() {
     themeIcon.textContent = "☀️"
     document.body.classList.add("dark-theme")
     document.body.classList.remove("light-theme")
+    document.documentElement.classList.add("dark-theme")
   } else {
     themeStylesheet.href = "https://jhproyectos.github.io/styles/light-theme.css"
     themeIcon.textContent = "🌙"
     document.body.classList.add("light-theme")
     document.body.classList.remove("dark-theme")
+    document.documentElement.classList.remove("dark-theme")
   }
 
   console.log("Tema aplicado desde localStorage:", savedTheme)
