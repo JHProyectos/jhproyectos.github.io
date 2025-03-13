@@ -1,237 +1,405 @@
-/* Reset y estilos base */
-/* Este bloque resetea los estilos por defecto del navegador para asegurar consistencia en todos los dispositivos */
-*,
-*::before,
-*::after {
-  box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño de los elementos */
-  margin: 0; /* Elimina márgenes por defecto */
-  padding: 0; /* Elimina relleno por defecto */
-}
+/* Correcciones para asegurar que los estilos se apliquen correctamente */
 
-/* Variables globales definidas en :root para que estén disponibles en todo el documento */
-:root {
-  /* Variables de color y estilo que serán sobrescritas por temas claro/oscuro */
-  --bg-color: #f5f5f5; /* Color de fondo principal (gris claro por defecto) */
-  --text-color: #333333; /* Color de texto principal (gris oscuro por defecto) */
-  --accent-color: #007bff; /* Color de acento principal (azul vibrante) */
-  --accent-hover: #0056b3; /* Color de acento al pasar el mouse (azul más oscuro) */
-  --secondary-bg: #ffffff; /* Color de fondo secundario (blanco por defecto) */
-  --border-color: #dddddd; /* Color de bordes (gris claro) */
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para tarjetas */
-  --card-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el mouse */
-  --header-height: 70px; /* Altura fija del header */
-  --footer-height: 60px; /* Altura fija del footer */
-  --transition-speed: 0.3s; /* Duración de las transiciones (300ms) */
-  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1); /* Curva de aceleración para transiciones suaves */
-
-  /* Configuración de tipografía base */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fuentes modernas y legibles */
-  font-size: 16px; /* Tamaño base de fuente */
-  line-height: 1.5; /* Altura de línea para mejor legibilidad */
-  scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll con anclas */
-}
-
-/* Estilos base para el cuerpo del documento */
-body {
-  background-color: var(--bg-color); /* Aplica el color de fondo definido en las variables */
-  color: var(--text-color); /* Aplica el color de texto definido en las variables */
-  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
-  display: flex; /* Usa flexbox para organizar el contenido */
-  flex-direction: column; /* Contenido apilado verticalmente */
-  transition: background-color var(--transition-speed), color var(--transition-speed); /* Transición suave al cambiar temas */
-}
-
-/* Estilos específicos para temas claro y oscuro aplicados al body */
-body.light-theme {
-  background-color: var(--bg-color); /* Refuerza el fondo para el tema claro */
-  color: var(--text-color); /* Refuerza el texto para el tema claro */
-}
-
-body.dark-theme {
-  background-color: var(--bg-color); /* Refuerza el fondo para el tema oscuro */
-  color: var(--text-color); /* Refuerza el texto para el tema oscuro */
-}
-
-/* Contenido principal */
-main {
-  flex: 1; /* Ocupa todo el espacio disponible entre header y footer */
-  padding-top: var(--header-height); /* Espacio para no tapar contenido con el header fijo */
-  padding-bottom: 2rem; /* Espacio inferior para separar del footer */
-}
-
-/* Contenedor genérico para limitar ancho y centrar contenido */
-.container {
-  width: 100%; /* Ancho completo */
-  max-width: 1200px; /* Ancho máximo para pantallas grandes */
-  margin: 0 auto; /* Centra horizontalmente */
-  padding: 0 1.5rem; /* Espaciado lateral para márgenes internos */
-}
-
-/* Tipografía base para encabezados y párrafos */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700; /* Peso negrita para todos los encabezados */
-  line-height: 1.2; /* Altura de línea más ajustada para títulos */
-  margin-bottom: 0.5em; /* Espacio inferior proporcional */
-}
-
-h1 { font-size: 2.5rem; } /* Tamaño grande para títulos principales */
-h2 { font-size: 2rem; } /* Tamaño mediano para subtítulos */
-h3 { font-size: 1.5rem; } /* Tamaño más pequeño para títulos secundarios */
-
-p {
-  margin-bottom: 1rem; /* Espacio inferior para párrafos */
-}
-
-/* Estilos para enlaces */
-a {
-  color: var(--accent-color); /* Color de acento para enlaces */
-  text-decoration: none; /* Sin subrayado por defecto */
-  transition: color var(--transition-speed) var(--transition-timing); /* Transición suave al cambiar color */
-}
-
-a:hover {
-  color: var(--accent-hover); /* Color más oscuro al pasar el mouse */
-}
-
-/* Header (barra de navegación superior) */
-header {
-  position: fixed; /* Fijo en la parte superior */
-  top: 0; left: 0; /* Alineado al borde superior e izquierdo */
-  width: 100%; /* Ancho completo */
-  height: var(--header-height); /* Altura definida por variable */
-  background-color: var(--secondary-bg); /* Fondo secundario (blanco o gris oscuro según tema) */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave debajo */
-  z-index: 1000; /* Capa alta para estar sobre otros elementos */
-  transition: background-color var(--transition-speed), box-shadow var(--transition-speed); /* Transiciones para tema y sombra */
-}
-
-/* Contenedor interno del header */
-.header-container {
-  display: flex; /* Flexbox para alinear logo y menú */
-  justify-content: space-between; /* Espacio máximo entre logo y menú */
-  align-items: center; /* Centrado vertical */
-  height: 100%; /* Ocupa toda la altura del header */
-}
-
-/* Estilos para el logo */
-.logo {
-  height: 40px; /* Altura fija */
-  transition: transform var(--transition-speed); /* Transición para efecto hover */
-}
-
-.logo:hover {
-  transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
-}
-
-/* Menú de navegación */
-.nav-menu {
-  display: flex; /* Flexbox para alinear ítems horizontalmente */
-  list-style: none; /* Elimina viñetas de la lista */
-}
-
-/* Cada ítem del menú */
-.nav-item {
-  margin-left: 1.5rem; /* Espacio entre ítems */
-  position: relative; /* Necesario para el efecto de subrayado */
-}
-
-/* Enlaces del menú */
-.nav-link {
-  color: var(--text-color); /* Color de texto según tema */
-  text-decoration: none; /* Sin subrayado */
-  font-weight: 500; /* Peso medio para destacar */
-  padding: 0.5rem 0; /* Espaciado vertical */
-  transition: color var(--transition-speed); /* Transición suave para color */
-  position: relative; /* Para el pseudo-elemento ::after */
-}
-
-/* Línea animada debajo de los enlaces */
-.nav-link::after {
-  content: ""; /* Elemento vacío para la línea */
-  position: absolute; /* Posicionada debajo del enlace */
-  bottom: -2px; /* A 2px del borde inferior */
-  left: 0; /* Alineada a la izquierda */
-  width: 0; /* Comienza con ancho cero */
-  height: 2px; /* Grosor de la línea */
-  background-color: var(--accent-color); /* Color de acento */
-  transition: width var(--transition-speed) var(--transition-timing); /* Animación de expansión */
-}
-
-/* Efecto al pasar el mouse o cuando está activo */
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%; /* Línea se expande al ancho completo */
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--accent-color); /* Cambia a color de acento */
-}
-
-/* Selector de idioma en el header */
-.language-selector {
-  display: flex; /* Flexbox para alinear botones de idioma */
-  align-items: center; /* Centrado vertical */
-  margin-left: 1.5rem; /* Espacio respecto al menú */
-}
-
-/* Botones de idioma */
-.lang-button {
-  background: none; /* Sin fondo */
-  border: none; /* Sin borde */
-  cursor: pointer; /* Mano al pasar el mouse */
-  padding: 0.25rem 0.5rem; /* Espaciado interno */
-  font-weight: 500; /* Peso medio */
-  color: var(--text-color); /* Color según tema */
-  transition: color var(--transition-speed), transform var(--transition-speed); /* Transiciones para color y movimiento */
-}
-
-/* Efecto hover en botones de idioma */
-.lang-button:hover {
-  color: var(--accent-color); /* Cambia a color de acento */
-  transform: translateY(-2px); /* Sube ligeramente */
-}
-
-/* Botón de idioma activo */
-.lang-button.active {
-  color: var(--accent-color); /* Color de acento */
-  font-weight: 700; /* Negrita para destacar */
-}
-
-/* Botón de menú móvil (oculto por defecto) */
-.mobile-menu-button {
-  display: none; /* Oculto en pantallas grandes */
-  background: none; /* Sin fondo */
-  border: none; /* Sin borde */
-  font-size: 1.5rem; /* Tamaño de ícono */
-  cursor: pointer; /* Mano al pasar el mouse */
-  color: var(--text-color); /* Color según tema */
-  transition: color var(--transition-speed), transform var(--transition-speed); /* Transiciones para color y rotación */
-}
-
-/* Efecto hover en botón móvil */
-.mobile-menu-button:hover {
-  color: var(--accent-color); /* Cambia a color de acento */
-  transform: rotate(90deg); /* Rota 90 grados */
-}
-
-/* Sección Hero (banner principal) */
+/* Hero Section */
 .hero {
-  padding: 6rem 0; /* Espaciado vertical amplio */
-  text-align: center; /* Todo centrado */
-  background-color: var(--secondary-bg); /* Fondo secundario */
-  margin-bottom: 3rem; /* Espacio inferior */
-  position: relative; /* Para el pseudo-elemento de fondo */
-  overflow: hidden; /* Evita que el fondo se desborde */
+  padding: 6rem 0;
+  text-align: center;
+  background-color: var(--secondary-bg);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Fondo decorativo en la sección hero */
 .hero::before {
-  content: ""; /* Elemento vacío para el gradiente */
-  position: absolute; /* Cubre toda la sección */
-  top: 0; left: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 196, 255, 0.1) 100%);
+  z-index: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeInUp 1s ease-out 0.3s;
+  animation-fill-mode: both;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-image {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.responsive-image:hover {
+  transform: scale(1.02);
+}
+
+/* Features Section */
+.features {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.feature-card {
+  background-color: var(--secondary-bg);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  transition: all var(--transition-speed);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  height: 100%;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: rgba(0, 123, 255, 0.05);
+  transition: height var(--transition-speed);
+  z-index: -1;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.feature-card:hover::before {
+  height: 100%;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: transform var(--transition-speed);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  transition: color var(--transition-speed);
+}
+
+.feature-card:hover h3 {
+  color: var(--accent-color);
+}
+
+.feature-card p {
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+/* Services Preview */
+.services-preview {
+  padding: 5rem 0;
+  background-color: var(--secondary-bg);
+  position: relative;
+}
+
+.services-preview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 196, 255, 0.05) 100%);
+  z-index: 0;
+}
+
+.services-preview .container {
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-speed);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-speed);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.service-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.service-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform var(--transition-speed);
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+.service-card h3 {
+  padding: 1.25rem;
+  text-align: center;
+  font-size: 1.3rem;
+  transition: color var(--transition-speed);
+}
+
+.service-card:hover h3 {
+  color: var(--accent-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.secondary-button {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.secondary-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width var(--transition-speed);
+  z-index: -1;
+}
+
+.secondary-button:hover {
+  color: white;
+}
+
+.secondary-button:hover::before {
+  width: 100%;
+}
+
+/* Botón CTA */
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out 0.6s;
+  animation-fill-mode: both;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .feature-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-button,
+  .secondary-button {
+    width: 100%;
+  }
+}
+
