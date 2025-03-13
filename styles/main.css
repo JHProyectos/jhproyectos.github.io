@@ -1,1061 +1,1162 @@
-/* Reset y estilos base */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ==========================================================================
+   Reset y Estilos Base
+   ========================================================================== */
+
+/* Reseteo global para eliminar estilos predeterminados del navegador y asegurar consistencia */
+*, *::before, *::after {
+  box-sizing: border-box; /* Incluye padding y bordes en el cálculo del ancho y alto */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina relleno por defecto */
 }
 
+/* Variables globales definidas en :root para acceso en todo el documento */
 :root {
-  /* Estas variables serán sobrescritas por los temas */
-  --bg-color: #f5f5f5;
-  --text-color: #333333;
-  --accent-color: #007bff;
-  --accent-hover: #0056b3;
-  --secondary-bg: #ffffff;
-  --border-color: #dddddd;
-  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --card-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
-  --header-height: 70px;
-  --footer-height: 60px;
-  --transition-speed: 0.3s;
-  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Colores base que serán sobrescritos por temas claro/oscuro */
+  --bg-color: #f5f5f5; /* Fondo principal: gris claro para el tema claro */
+  --text-color: #333333; /* Color de texto principal: gris oscuro para legibilidad */
+  --accent-color: #007bff; /* Color de acento: azul vibrante para botones y enlaces */
+  --accent-hover: #0056b3; /* Variante más oscura del acento para estados hover */
+  --secondary-bg: #ffffff; /* Fondo secundario: blanco para tarjetas y secciones */
+  --border-color: #dddddd; /* Color de bordes: gris claro para sutilidad */
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para elementos elevados */
+  --card-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada en hover */
+  --header-height: 70px; /* Altura fija del encabezado para diseño consistente */
+  --footer-height: 60px; /* Altura fija del pie de página */
+  --transition-speed: 0.3s; /* Duración de transiciones para efectos suaves (300ms) */
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1); /* Curva de aceleración para transiciones naturales */
 
-  /* Fuentes */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  scroll-behavior: smooth;
+  /* Configuración tipográfica base */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fuentes modernas y legibles, con fallback */
+  font-size: 16px; /* Tamaño base de fuente para escalabilidad (1rem = 16px) */
+  line-height: 1.5; /* Altura de línea para mejorar legibilidad del texto */
+  scroll-behavior: smooth; /* Desplazamiento suave al usar anclas o scroll programático */
 }
 
+/* Estilos base para el cuerpo del documento */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  background-color: var(--bg-color); /* Fondo según tema (gris claro por defecto) */
+  color: var(--text-color); /* Color de texto según tema (gris oscuro por defecto) */
+  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la ventana */
+  display: flex; /* Usa flexbox para estructurar header, main y footer */
+  flex-direction: column; /* Apila los elementos verticalmente */
+  transition: background-color var(--transition-speed), color var(--transition-speed); /* Transiciones suaves al cambiar tema */
 }
 
-/* Asegurar que los temas se apliquen correctamente */
+/* Estilos específicos para temas claro y oscuro */
 body.light-theme {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color); /* Refuerza el fondo según variables del tema claro */
+  color: var(--text-color); /* Refuerza el texto según variables del tema claro */
 }
 
 body.dark-theme {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-color); /* Refuerza el fondo según variables del tema oscuro */
+  color: var(--text-color); /* Refuerza el texto según variables del tema oscuro */
 }
 
+/* Contenido principal */
 main {
-  flex: 1;
-  padding-top: var(--header-height);
-  padding-bottom: 2rem;
+  flex: 1; /* Ocupa el espacio disponible entre header y footer */
+  padding-top: var(--header-height); /* Espacio superior para evitar solapamiento con header fijo */
+  padding-bottom: 2rem; /* Espacio inferior para separar del footer */
 }
 
+/* Contenedor genérico para centrar y limitar ancho del contenido */
 .container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  width: 100%; /* Ancho completo por defecto */
+  max-width: 1200px; /* Límite máximo para pantallas grandes */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 0 1.5rem; /* Márgenes internos laterales para espaciado */
 }
 
-/* Tipografía */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
+/* ==========================================================================
+   Tipografía
+   ========================================================================== */
+
+/* Estilos base para encabezados */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700; /* Peso negrita para destacar títulos */
+  line-height: 1.2; /* Altura de línea ajustada para títulos */
+  margin-bottom: 0.5em; /* Espacio inferior relativo al tamaño de fuente */
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* Tamaño grande para títulos principales (40px) */
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2rem; /* Tamaño mediano para subtítulos (32px) */
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Tamaño más pequeño para títulos secundarios (24px) */
 }
 
+/* Párrafos */
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Espacio inferior para separar párrafos */
 }
 
+/* Enlaces */
 a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color var(--transition-speed) var(--transition-timing);
+  color: var(--accent-color); /* Color de acento para enlaces (azul por defecto) */
+  text-decoration: none; /* Sin subrayado para un diseño limpio */
+  transition: color var(--transition-speed) var(--transition-timing); /* Transición suave al cambiar color */
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--accent-hover); /* Color más oscuro al pasar el mouse */
 }
 
-/* Header */
+/* ==========================================================================
+   Header (Encabezado)
+   ========================================================================== */
+
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: var(--header-height);
-  background-color: var(--secondary-bg);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+  position: fixed; /* Fijo en la parte superior de la pantalla */
+  top: 0; /* Alineado al borde superior */
+  left: 0; /* Alineado al borde izquierdo */
+  width: 100%; /* Ocupa todo el ancho */
+  height: var(--header-height); /* Altura definida por variable (70px) */
+  background-color: var(--secondary-bg); /* Fondo blanco o gris oscuro según tema */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+  z-index: 1000; /* Capa alta para estar sobre otros elementos */
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed); /* Transiciones al cambiar tema */
 }
 
+/* Contenedor interno del header */
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+  display: flex; /* Flexbox para alinear logo y menú */
+  justify-content: space-between; /* Espacio máximo entre elementos */
+  align-items: center; /* Centrado vertical */
+  height: 100%; /* Ocupa toda la altura del header */
 }
 
+/* Logo */
 .logo {
-  height: 40px;
-  transition: transform var(--transition-speed);
+  height: 40px; /* Altura fija para consistencia */
+  transition: transform var(--transition-speed); /* Transición para efecto hover */
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
 }
 
+/* Menú de navegación */
 .nav-menu {
-  display: flex;
-  list-style: none;
+  display: flex; /* Flexbox para alinear ítems horizontalmente */
+  list-style: none; /* Elimina viñetas de la lista */
 }
 
+/* Ítems del menú */
 .nav-item {
-  margin-left: 1.5rem;
-  position: relative;
+  margin-left: 1.5rem; /* Espacio entre ítems */
+  position: relative; /* Necesario para el efecto de subrayado */
 }
 
+/* Enlaces del menú */
 .nav-link {
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  transition: color var(--transition-speed);
-  position: relative;
+  color: var(--text-color); /* Color según tema */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 500; /* Peso medio para destacar */
+  padding: 0.5rem 0; /* Espaciado vertical */
+  transition: color var(--transition-speed); /* Transición suave para color */
+  position: relative; /* Para el pseudo-elemento ::after */
 }
 
+/* Línea animada debajo de los enlaces */
 .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: width var(--transition-speed) var(--transition-timing);
+  content: ""; /* Elemento vacío para la línea */
+  position: absolute; /* Posicionada debajo del enlace */
+  bottom: -2px; /* A 2px del borde inferior */
+  left: 0; /* Alineada a la izquierda */
+  width: 0; /* Comienza con ancho cero */
+  height: 2px; /* Grosor de la línea */
+  background-color: var(--accent-color); /* Color de acento */
+  transition: width var(--transition-speed) var(--transition-timing); /* Animación de expansión */
 }
 
+/* Efecto hover y estado activo para enlaces */
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 100%;
+  width: 100%; /* Línea se expande al ancho completo */
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Cambia a color de acento */
 }
 
+/* Selector de idioma en el header */
 .language-selector {
-  display: flex;
-  align-items: center;
-  margin-left: 1.5rem;
+  display: flex; /* Flexbox para alinear botones de idioma */
+  align-items: center; /* Centrado vertical */
+  margin-left: 1.5rem; /* Espacio respecto al menú */
 }
 
+/* Botones de idioma */
 .lang-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  font-weight: 500;
-  color: var(--text-color);
-  transition: color var(--transition-speed), transform var(--transition-speed);
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Mano al pasar el mouse */
+  padding: 0.25rem 0.5rem; /* Espaciado interno */
+  font-weight: 500; /* Peso medio */
+  color: var(--text-color); /* Color según tema */
+  transition: color var(--transition-speed), transform var(--transition-speed); /* Transiciones para color y movimiento */
 }
 
+/* Efecto hover en botones de idioma */
 .lang-button:hover {
-  color: var(--accent-color);
-  transform: translateY(-2px);
+  color: var(--accent-color); /* Cambia a color de acento */
+  transform: translateY(-2px); /* Sube ligeramente */
 }
 
+/* Botón de idioma activo */
 .lang-button.active {
-  color: var(--accent-color);
-  font-weight: 700;
+  color: var(--accent-color); /* Color de acento */
+  font-weight: 700; /* Negrita para destacar */
 }
 
+/* Botón de menú móvil (oculto por defecto en escritorio) */
 .mobile-menu-button {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text-color);
-  transition: color var(--transition-speed), transform var(--transition-speed);
+  display: none; /* Oculto en pantallas grandes */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  font-size: 1.5rem; /* Tamaño de ícono (24px) */
+  cursor: pointer; /* Mano al pasar el mouse */
+  color: var(--text-color); /* Color según tema */
+  transition: color var(--transition-speed), transform var(--transition-speed); /* Transiciones para color y rotación */
 }
 
+/* Efecto hover en botón móvil */
 .mobile-menu-button:hover {
-  color: var(--accent-color);
-  transform: rotate(90deg);
+  color: var(--accent-color); /* Cambia a color de acento */
+  transform: rotate(90deg); /* Rota 90 grados para indicar interacción */
 }
 
-/* Hero Section */
+/* ==========================================================================
+   Sección Hero (Banner Principal)
+   ========================================================================== */
+
 .hero {
-  padding: 6rem 0;
-  text-align: center;
-  background-color: var(--secondary-bg);
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
+  padding: 6rem 0; /* Espaciado vertical amplio para destacar */
+  text-align: center; /* Contenido centrado */
+  background-color: var(--secondary-bg); /* Fondo secundario según tema */
+  margin-bottom: 3rem; /* Espacio inferior para separar de otras secciones */
+  position: relative; /* Para el pseudo-elemento de fondo */
+  overflow: hidden; /* Evita desbordamiento del fondo decorativo */
 }
 
+/* Fondo decorativo en la sección hero */
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 196, 255, 0.1) 100%);
-  z-index: 0;
+  content: ""; /* Elemento vacío para el gradiente */
+  position: absolute; /* Cubre toda la sección */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 196, 255, 0.1) 100%); /* Gradiente azul sutil */
+  z-index: 0; /* Debajo del contenido */
 }
 
+/* Contenedor dentro del hero */
 .hero .container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative; /* Sobre el fondo decorativo */
+  z-index: 1; /* Capa superior al fondo */
+  display: flex; /* Flexbox para alinear contenido */
+  flex-direction: column; /* Apila elementos verticalmente */
+  align-items: center; /* Centrado horizontal */
 }
 
+/* Contenido principal del hero */
 .hero-content {
-  text-align: center;
-  margin-bottom: 2rem;
-  max-width: 800px;
+  text-align: center; /* Centrado del texto */
+  margin-bottom: 2rem; /* Espacio inferior */
+  max-width: 800px; /* Ancho máximo para legibilidad */
 }
 
+/* Título principal del hero */
 .hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
-  animation: fadeInDown 1s ease-out;
+  font-size: 3.5rem; /* Tamaño grande (56px) */
+  margin-bottom: 1rem; /* Espacio inferior */
+  color: var(--text-color); /* Color según tema */
+  animation: fadeInDown 1s ease-out; /* Animación de entrada desde arriba */
 }
 
+/* Subtítulo del hero */
 .hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2.5rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  animation: fadeInUp 1s ease-out 0.3s;
-  animation-fill-mode: both;
+  font-size: 1.5rem; /* Tamaño mediano (24px) */
+  margin-bottom: 2.5rem; /* Espacio inferior amplio */
+  max-width: 800px; /* Ancho máximo para legibilidad */
+  margin-left: auto; margin-right: auto; /* Centrado horizontal */
+  animation: fadeInUp 1s ease-out 0.3s; /* Animación desde abajo con retraso */
+  animation-fill-mode: both; /* Mantiene el estado final de la animación */
 }
 
+/* Contenedor de botones en el hero */
 .hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  display: flex; /* Flexbox para alinear botones */
+  justify-content: center; /* Centrado horizontal */
+  gap: 1rem; /* Espacio entre botones */
 }
 
+/* Imagen en el hero (si se usa) */
 .hero-image {
-  margin: 0 auto;
-  max-width: 100%;
+  margin: 0 auto; /* Centrado horizontal */
+  max-width: 100%; /* Escala al ancho del contenedor */
 }
 
+/* Imagen responsiva genérica */
 .responsive-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease;
+  max-width: 100%; /* Se adapta al contenedor */
+  height: auto; /* Mantiene proporciones */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: var(--card-shadow); /* Sombra suave */
+  transition: transform 0.3s ease; /* Transición para efecto hover */
 }
 
 .responsive-image:hover {
-  transform: scale(1.02);
+  transform: scale(1.02); /* Aumenta ligeramente al pasar el mouse */
 }
 
+/* Botón de llamada a la acción (CTA) */
 .cta-button {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 0.85rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all var(--transition-speed);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-  animation: fadeInUp 1s ease-out 0.6s;
-  animation-fill-mode: both;
+  display: inline-block; /* Bloque en línea para centrar */
+  background-color: var(--accent-color); /* Fondo azul por defecto */
+  color: white; /* Texto blanco para contraste */
+  padding: 0.85rem 2rem; /* Espaciado interno */
+  border-radius: 50px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 600; /* Peso seminegrita */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Sombra suave */
+  position: relative; /* Para el efecto ::before */
+  overflow: hidden; /* Evita desbordamiento del efecto */
+  animation: fadeInUp 1s ease-out 0.6s; /* Animación con retraso */
+  animation-fill-mode: both; /* Mantiene el estado final */
 }
 
+/* Efecto de brillo en el botón CTA */
 .cta-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.7s;
+  content: ""; /* Elemento vacío para el brillo */
+  position: absolute; /* Dentro del botón */
+  top: 0; left: -100%; /* Comienza fuera a la izquierda */
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Gradiente de brillo */
+  transition: left 0.7s; /* Movimiento del brillo */
 }
 
+/* Hover del botón CTA */
 .cta-button:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  background-color: var(--accent-hover); /* Color más oscuro */
+  transform: translateY(-3px); /* Sube ligeramente */
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); /* Sombra más fuerte */
 }
 
 .cta-button:hover::before {
-  left: 100%;
+  left: 100%; /* Brillo se mueve a la derecha */
 }
 
+/* Efecto al hacer clic */
 .cta-button:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* Baja un poco al presionar */
 }
 
-/* Features Section */
+/* ==========================================================================
+   Sección de Características (Features)
+   ========================================================================== */
+
 .features {
-  padding: 5rem 0;
-  position: relative;
+  padding: 5rem 0; /* Espaciado vertical amplio */
+  position: relative; /* Para posibles efectos futuros */
 }
 
+/* Título de sección */
 .section-title {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-  position: relative;
-  padding-bottom: 1rem;
+  text-align: center; /* Centrado */
+  margin-bottom: 3rem; /* Espacio inferior */
+  font-size: 2.5rem; /* Tamaño grande (40px) */
+  position: relative; /* Para la línea decorativa */
+  padding-bottom: 1rem; /* Espacio para la línea */
 }
 
+/* Línea decorativa debajo del título */
 .section-title::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: var(--accent-color);
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Debajo del título */
+  bottom: 0; left: 50%; /* Centrada horizontalmente */
+  transform: translateX(-50%); /* Ajuste preciso al centro */
+  width: 80px; /* Ancho fijo */
+  height: 3px; /* Grosor */
+  background-color: var(--accent-color); /* Color de acento */
 }
 
+/* Grid para las tarjetas de características */
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  display: grid; /* Diseño en cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas adaptables, mínimo 300px */
+  gap: 2.5rem; /* Espacio entre tarjetas */
 }
 
+/* Tarjetas de características */
 .feature-card {
-  background-color: var(--secondary-bg);
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: var(--card-shadow);
-  text-align: center;
-  transition: all var(--transition-speed);
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  height: 100%;
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  padding: 2.5rem 2rem; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: var(--card-shadow); /* Sombra suave */
+  text-align: center; /* Contenido centrado */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  position: relative; /* Para el efecto ::before */
+  z-index: 1; /* Sobre el fondo decorativo */
+  overflow: hidden; /* Evita desbordamiento */
+  height: 100%; /* Asegura altura uniforme en el grid */
 }
 
+/* Fondo decorativo en la tarjeta */
 .feature-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: rgba(0, 123, 255, 0.05);
-  transition: height var(--transition-speed);
-  z-index: -1;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Cubre la tarjeta */
+  top: 0; left: 0;
+  width: 100%; height: 0; /* Comienza con altura cero */
+  background-color: rgba(0, 123, 255, 0.05); /* Fondo azul sutil */
+  transition: height var(--transition-speed); /* Animación de altura */
+  z-index: -1; /* Debajo del contenido */
 }
 
+/* Hover en la tarjeta */
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-10px); /* Sube al pasar el mouse */
+  box-shadow: var(--card-shadow-hover); /* Sombra más fuerte */
 }
 
+/* Expansión del fondo al hover */
 .feature-card:hover::before {
-  height: 100%;
+  height: 100%; /* Cubre toda la tarjeta */
 }
 
+/* Ícono dentro de la tarjeta */
 .feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  transition: transform var(--transition-speed);
+  font-size: 3rem; /* Tamaño grande (48px) */
+  margin-bottom: 1.5rem; /* Espacio inferior */
+  display: inline-block; /* Para aplicar transformaciones */
+  transition: transform var(--transition-speed); /* Transición para escala */
 }
 
+/* Efecto hover en el ícono */
 .feature-card:hover .feature-icon {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Aumenta de tamaño */
 }
 
+/* Título dentro de la tarjeta */
 .feature-card h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  transition: color var(--transition-speed);
+  margin-bottom: 1rem; /* Espacio inferior */
+  font-size: 1.5rem; /* Tamaño mediano (24px) */
+  transition: color var(--transition-speed); /* Transición para color */
 }
 
+/* Cambio de color al hover */
 .feature-card:hover h3 {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Color de acento */
 }
 
+/* Párrafo dentro de la tarjeta */
 .feature-card p {
-  color: var(--text-color);
-  opacity: 0.9;
+  color: var(--text-color); /* Color según tema */
+  opacity: 0.9; /* Ligeramente transparente para suavidad */
 }
 
-/* Services Preview */
+/* ==========================================================================
+   Sección de Vista Previa de Servicios (Services Preview)
+   ========================================================================== */
+
 .services-preview {
-  padding: 5rem 0;
-  background-color: var(--secondary-bg);
-  position: relative;
+  padding: 5rem 0; /* Espaciado vertical */
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  position: relative; /* Para el fondo decorativo */
 }
 
+/* Fondo decorativo en la sección de servicios */
 .services-preview::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 196, 255, 0.05) 100%);
-  z-index: 0;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Cubre la sección */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 196, 255, 0.05) 100%); /* Gradiente sutil */
+  z-index: 0; /* Debajo del contenido */
 }
 
+/* Contenedor dentro de la sección */
 .services-preview .container {
-  position: relative;
-  z-index: 1;
+  position: relative; /* Sobre el fondo */
+  z-index: 1; /* Capa superior */
 }
 
+/* Grid para las tarjetas de servicios */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  display: grid; /* Diseño en cuadrícula */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas adaptables */
+  gap: 2.5rem; /* Espacio entre tarjetas */
+  margin-bottom: 3rem; /* Espacio inferior */
 }
 
+/* Tarjetas de servicios */
 .service-card {
-  text-decoration: none;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  transition: all var(--transition-speed);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  text-decoration: none; /* Sin subrayado como enlace */
+  color: var(--text-color); /* Color según tema */
+  background-color: var(--bg-color); /* Fondo principal */
+  border-radius: 12px; /* Bordes redondeados */
+  overflow: hidden; /* Evita desbordamiento */
+  box-shadow: var(--card-shadow); /* Sombra suave */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  position: relative; /* Para el efecto ::after */
+  display: flex; /* Flexbox para alinear imagen y título */
+  flex-direction: column; /* Apila elementos verticalmente */
+  height: 100%; /* Asegura altura uniforme en el grid */
 }
 
+/* Línea animada en la parte inferior */
 .service-card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: var(--accent-color);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--transition-speed);
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Debajo de la tarjeta */
+  bottom: 0; left: 0;
+  width: 100%; height: 5px; /* Grosor de la línea */
+  background-color: var(--accent-color); /* Color de acento */
+  transform: scaleX(0); /* Comienza invisible */
+  transform-origin: right; /* Crece desde la derecha */
+  transition: transform var(--transition-speed); /* Animación de expansión */
 }
 
+/* Hover en la tarjeta */
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-10px); /* Sube al pasar el mouse */
+  box-shadow: var(--card-shadow-hover); /* Sombra más fuerte */
 }
 
+/* Expansión de la línea al hover */
 .service-card:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  transform: scaleX(1); /* Línea completa */
+  transform-origin: left; /* Crece desde la izquierda */
 }
 
+/* Imagen dentro de la tarjeta */
 .service-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  transition: transform var(--transition-speed);
+  width: 100%; /* Ancho completo */
+  height: 220px; /* Altura fija */
+  object-fit: cover; /* Cubre el espacio recortando si es necesario */
+  transition: transform var(--transition-speed); /* Transición para zoom */
 }
 
+/* Zoom en la imagen al hover */
 .service-card:hover .service-image {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Aumenta ligeramente */
 }
 
+/* Título dentro de la tarjeta */
 .service-card h3 {
-  padding: 1.25rem;
-  text-align: center;
-  font-size: 1.3rem;
-  transition: color var(--transition-speed);
+  padding: 1.25rem; /* Espaciado interno */
+  text-align: center; /* Centrado */
+  font-size: 1.3rem; /* Tamaño mediano (20.8px) */
+  transition: color var(--transition-speed); /* Transición para color */
 }
 
+/* Cambio de color al hover */
 .service-card:hover h3 {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Color de acento */
 }
 
+/* Clase utilitaria para texto centrado */
 .text-center {
-  text-align: center;
+  text-align: center; /* Centra el texto */
 }
 
+/* Botón secundario */
 .secondary-button {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  padding: 0.85rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all var(--transition-speed);
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  display: inline-block; /* Bloque en línea */
+  background-color: transparent; /* Sin fondo */
+  color: var(--accent-color); /* Color de acento */
+  border: 2px solid var(--accent-color); /* Borde de acento */
+  padding: 0.85rem 2rem; /* Espaciado interno */
+  border-radius: 50px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 600; /* Peso seminegrita */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  position: relative; /* Para el efecto ::before */
+  overflow: hidden; /* Evita desbordamiento */
+  z-index: 1; /* Sobre el fondo */
 }
 
+/* Efecto de relleno en el botón secundario */
 .secondary-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Dentro del botón */
+  top: 0; left: 0;
+  width: 0; /* Comienza con ancho cero */
   height: 100%;
-  background-color: var(--accent-color);
-  transition: width var(--transition-speed);
-  z-index: -1;
+  background-color: var(--accent-color); /* Fondo de acento */
+  transition: width var(--transition-speed); /* Animación de expansión */
+  z-index: -1; /* Debajo del texto */
 }
 
+/* Hover en el botón secundario */
 .secondary-button:hover {
-  color: white;
+  color: white; /* Texto blanco */
 }
 
+/* Expansión del fondo al hover */
 .secondary-button:hover::before {
-  width: 100%;
+  width: 100%; /* Fondo completo */
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer (Pie de Página)
+   ========================================================================== */
+
 footer {
-  background-color: var(--secondary-bg);
-  padding: 3rem 0 1.5rem;
-  text-align: center;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-  position: relative;
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  padding: 3rem 0 1.5rem; /* Espaciado vertical */
+  text-align: center; /* Contenido centrado */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Sombra suave arriba */
+  position: relative; /* Para el gradiente decorativo */
 }
 
+/* Línea decorativa en la parte superior del footer */
 footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-color), transparent, var(--accent-color));
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Cubre el borde superior */
+  top: 0; left: 0;
+  width: 100%; height: 3px; /* Grosor de la línea */
+  background: linear-gradient(90deg, var(--accent-color), transparent, var(--accent-color)); /* Gradiente decorativo */
 }
 
+/* Contenido del footer */
 .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  display: flex; /* Flexbox para alinear elementos */
+  justify-content: space-between; /* Espacio entre logo y enlaces */
+  align-items: center; /* Centrado vertical */
+  margin-bottom: 2rem; /* Espacio inferior */
 }
 
+/* Lista de enlaces del footer */
 .footer-links {
-  display: flex;
-  list-style: none;
+  display: flex; /* Flexbox para alinear horizontalmente */
+  list-style: none; /* Sin viñetas */
 }
 
+/* Cada enlace del footer */
 .footer-link {
-  margin-left: 1.5rem;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: all var(--transition-speed);
-  position: relative;
+  margin-left: 1.5rem; /* Espacio entre enlaces */
+  color: var(--text-color); /* Color según tema */
+  text-decoration: none; /* Sin subrayado */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  position: relative; /* Para el efecto ::after */
 }
 
+/* Línea animada debajo de los enlaces */
 .footer-link::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Debajo del enlace */
+  bottom: -5px; /* A 5px del borde inferior */
   left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: width var(--transition-speed);
+  width: 0; /* Comienza con ancho cero */
+  height: 2px; /* Grosor */
+  background-color: var(--accent-color); /* Color de acento */
+  transition: width var(--transition-speed); /* Animación de expansión */
 }
 
+/* Hover en los enlaces del footer */
 .footer-link:hover {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Color de acento */
 }
 
+/* Expansión de la línea al hover */
 .footer-link:hover::after {
-  width: 100%;
+  width: 100%; /* Línea completa */
 }
 
+/* Texto de copyright */
 .copyright {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  margin-top: 1rem; /* Espacio superior */
+  font-size: 0.9rem; /* Tamaño pequeño (14.4px) */
+  opacity: 0.8; /* Ligeramente transparente */
 }
 
-/* WhatsApp Button */
+/* ==========================================================================
+   Botón Flotante de WhatsApp
+   ========================================================================== */
+
 .whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #25d366;
-  border-radius: 50%;
-  display: flex;
+  position: fixed; /* Fijo en la pantalla */
+  bottom: 20px; /* 20px desde la parte inferior */
+  right: 20px; /* 20px desde el borde derecho */
+  width: 60px; height: 60px; /* Tamaño circular */
+  background-color: #25d366; /* Verde característico de WhatsApp */
+  border-radius: 50%; /* Forma circular */
+  display: flex; /* Centra el ícono */
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-  z-index: 100;
-  transition: all var(--transition-speed);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); /* Sombra suave */
+  z-index: 100; /* Capa alta */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
 }
 
+/* Efecto de pulso en el botón de WhatsApp */
 .whatsapp-button::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #25d366;
-  opacity: 0.6;
-  animation: pulse 2s infinite;
-  z-index: -1;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Cubre el botón */
+  width: 100%; height: 100%;
+  border-radius: 50%; /* Forma circular */
+  background-color: #25d366; /* Verde de WhatsApp */
+  opacity: 0.6; /* Semitransparente */
+  animation: pulse 2s infinite; /* Animación infinita de pulso */
+  z-index: -1; /* Debajo del ícono */
 }
 
+/* Hover en el botón de WhatsApp */
 .whatsapp-button:hover {
-  transform: scale(1.1) rotate(10deg);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  transform: scale(1.1) rotate(10deg); /* Aumenta y gira */
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); /* Sombra más fuerte */
 }
 
+/* Ícono de WhatsApp */
 .whatsapp-icon {
-  width: 35px;
-  height: 35px;
+  width: 35px; height: 35px; /* Tamaño del ícono */
 }
 
-/* Theme Toggle Button */
+/* ==========================================================================
+   Botón Flotante de Cambio de Tema
+   ========================================================================== */
+
 .theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: var(--secondary-bg);
-  border: none;
-  border-radius: 50%;
-  display: flex;
+  position: fixed; /* Fijo en la pantalla */
+  bottom: 20px; /* 20px desde la parte inferior */
+  left: 20px; /* 20px desde el borde izquierdo */
+  width: 50px; height: 50px; /* Tamaño circular */
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  border: none; /* Sin borde */
+  border-radius: 50%; /* Forma circular */
+  display: flex; /* Centra el ícono */
   justify-content: center;
   align-items: center;
-  box-shadow: var(--card-shadow);
-  cursor: pointer;
-  z-index: 100;
-  transition: all var(--transition-speed);
+  box-shadow: var(--card-shadow); /* Sombra suave */
+  cursor: pointer; /* Mano al pasar el mouse */
+  z-index: 100; /* Capa alta */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
 }
 
+/* Hover en el botón de tema */
 .theme-toggle:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1) rotate(15deg); /* Aumenta y gira */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
 }
 
+/* Ícono del botón de tema */
 .theme-toggle-icon {
-  font-size: 1.5rem;
-  transition: transform var(--transition-speed);
+  font-size: 1.5rem; /* Tamaño del ícono (24px) */
+  transition: transform var(--transition-speed); /* Transición para rotación */
 }
 
+/* Rotación del ícono al hover */
 .theme-toggle:hover .theme-toggle-icon {
-  transform: rotate(360deg);
+  transform: rotate(360deg); /* Gira completamente */
 }
 
-/* Language Selector Mobile */
+/* ==========================================================================
+   Selector de Idioma para Móviles
+   ========================================================================== */
+
 .language-selector-mobile {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 80px;
-  z-index: 100;
+  display: none; /* Oculto por defecto en escritorio */
+  position: fixed; /* Fijo en la pantalla */
+  bottom: 20px; /* 20px desde la parte inferior */
+  left: 80px; /* A 80px del borde izquierdo (junto al botón de tema) */
+  z-index: 100; /* Capa alta */
 }
 
+/* Botón de idioma móvil */
 .lang-toggle-mobile {
-  width: 50px;
-  height: 50px;
-  background-color: var(--secondary-bg);
-  border: none;
-  border-radius: 50%;
-  display: flex;
+  width: 50px; height: 50px; /* Tamaño circular */
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  border: none; /* Sin borde */
+  border-radius: 50%; /* Forma circular */
+  display: flex; /* Centra el ícono */
   justify-content: center;
   align-items: center;
-  box-shadow: var(--card-shadow);
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: all var(--transition-speed);
+  box-shadow: var(--card-shadow); /* Sombra suave */
+  cursor: pointer; /* Mano al pasar el mouse */
+  font-size: 1.5rem; /* Tamaño del ícono (24px) */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
 }
 
+/* Hover en el botón de idioma móvil */
 .lang-toggle-mobile:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1) rotate(15deg); /* Aumenta y gira */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
 }
 
-/* Formularios */
+/* ==========================================================================
+   Formularios
+   ========================================================================== */
+
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Espacio entre grupos de formulario */
 }
 
+/* Etiquetas de formulario */
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  display: block; /* Ocupa toda la línea */
+  margin-bottom: 0.5rem; /* Espacio inferior */
+  font-weight: 500; /* Peso medio para destacar */
 }
 
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all var(--transition-speed);
+/* Campos de entrada */
+input, textarea, select {
+  width: 100%; /* Ancho completo */
+  padding: 0.75rem 1rem; /* Espaciado interno */
+  border: 1px solid var(--border-color); /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: var(--bg-color); /* Fondo según tema */
+  color: var(--text-color); /* Texto según tema */
+  font-family: inherit; /* Hereda la fuente base */
+  font-size: 1rem; /* Tamaño estándar (16px) */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+/* Efecto al enfocar los campos */
+input:focus, textarea:focus, select:focus {
+  outline: none; /* Elimina el contorno por defecto */
+  border-color: var(--accent-color); /* Borde de acento */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Sombra suave al enfocar */
 }
 
+/* Botón de envío */
 .submit-button {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 0.85rem 2rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-speed);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  display: inline-block; /* Bloque en línea */
+  background-color: var(--accent-color); /* Fondo de acento */
+  color: white; /* Texto blanco */
+  padding: 0.85rem 2rem; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 50px; /* Bordes redondeados */
+  font-weight: 600; /* Peso seminegrita */
+  cursor: pointer; /* Mano al pasar el mouse */
+  transition: all var(--transition-speed); /* Transición para todos los cambios */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Sombra suave */
 }
 
+/* Hover en el botón de envío */
 .submit-button:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  background-color: var(--accent-hover); /* Color más oscuro */
+  transform: translateY(-3px); /* Sube ligeramente */
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4); /* Sombra más fuerte */
 }
 
+/* Efecto al hacer clic */
 .submit-button:active {
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* Baja un poco al presionar */
 }
 
-/* Página de contacto */
+/* ==========================================================================
+   Página de Contacto
+   ========================================================================== */
+
+/* Grid para la página de contacto */
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
+  display: grid; /* Diseño en cuadrícula */
+  grid-template-columns: 1fr 2fr; /* Dos columnas: 1 parte y 2 partes */
+  gap: 3rem; /* Espacio entre columnas */
 }
 
+/* Contenedor de información de contacto */
 .contact-info {
-  background-color: var(--secondary-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: var(--card-shadow); /* Sombra suave */
 }
 
+/* Cada ítem de contacto */
 .contact-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; /* Espacio inferior */
 }
 
+/* Título de los ítems de contacto */
 .contact-item h3 {
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  color: var(--accent-color); /* Color de acento */
+  margin-bottom: 0.5rem; /* Espacio inferior */
+  font-size: 1.2rem; /* Tamaño mediano (19.2px) */
 }
 
+/* Contenedor del formulario de contacto */
 .contact-form-container {
-  background-color: var(--secondary-bg);
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  padding: 2.5rem; /* Espaciado interno */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: var(--card-shadow); /* Sombra suave */
 }
 
-/* Página de error */
+/* ==========================================================================
+   Página de Error (404)
+   ========================================================================== */
+
 .error-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - var(--header-height) - var(--footer-height));
-  text-align: center;
+  display: flex; /* Centra el contenido */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Altura mínima ajustada */
+  text-align: center; /* Texto centrado */
 }
 
+/* Contenido de la página de error */
 .error-content {
-  max-width: 600px;
-  padding: 3rem;
+  max-width: 600px; /* Ancho máximo */
+  padding: 3rem; /* Espaciado interno */
 }
 
+/* Título de error */
 .error-title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  color: var(--accent-color);
+  font-size: 4rem; /* Tamaño grande (64px) */
+  margin-bottom: 1rem; /* Espacio inferior */
+  color: var(--accent-color); /* Color de acento */
 }
 
+/* Mensaje de error */
 .error-message {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem; /* Tamaño mediano (24px) */
+  margin-bottom: 2rem; /* Espacio inferior */
 }
 
-/* Animaciones */
+/* ==========================================================================
+   Animaciones
+   ========================================================================== */
+
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); } /* Inicio: invisible y arriba */
+  to { opacity: 1; transform: translateY(0); } /* Final: visible y en posición */
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); } /* Inicio: invisible y abajo */
+  to { opacity: 1; transform: translateY(0); } /* Final: visible y en posición */
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(1.3);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
+  0% { transform: scale(1); opacity: 0.6; } /* Inicio: tamaño normal */
+  70% { transform: scale(1.3); opacity: 0; } /* Punto máximo: más grande y transparente */
+  100% { transform: scale(1); opacity: 0; } /* Final: vuelve al inicio */
 }
 
-/* Página de servicios */
+/* ==========================================================================
+   Página de Servicios (Header Interno)
+   ========================================================================== */
+
 .page-header {
-  background-color: var(--secondary-bg);
-  padding: 5rem 0 3rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
+  background-color: var(--secondary-bg); /* Fondo secundario */
+  padding: 5rem 0 3rem; /* Espaciado vertical */
+  text-align: center; /* Contenido centrado */
+  margin-bottom: 3rem; /* Espacio inferior */
+  position: relative; /* Para el fondo decorativo */
+  overflow: hidden; /* Evita desbordamiento */
 }
 
+/* Fondo decorativo en el encabezado */
 .page-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 196, 255, 0.1) 100%);
-  z-index: 0;
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Cubre la sección */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 196, 255, 0.1) 100%); /* Gradiente sutil */
+  z-index: 0; /* Debajo del contenido */
 }
 
+/* Contenedor del encabezado */
 .page-header .container {
-  position: relative;
-  z-index: 1;
+  position: relative; /* Sobre el fondo */
+  z-index: 1; /* Capa superior */
 }
 
+/* Título de página */
 .page-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
+  font-size: 3rem; /* Tamaño grande (48px) */
+  margin-bottom: 1rem; /* Espacio inferior */
+  position: relative; /* Para la línea decorativa */
+  display: inline-block; /* Para centrar la línea */
 }
 
+/* Línea decorativa debajo del título */
 .page-title::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background-color: var(--accent-color);
+  content: ""; /* Elemento vacío */
+  position: absolute; /* Debajo del título */
+  bottom: -10px; left: 50%; /* Centrada */
+  transform: translateX(-50%); /* Ajuste preciso al centro */
+  width: 80px; /* Ancho fijo */
+  height: 3px; /* Grosor */
+  background-color: var(--accent-color); /* Color de acento */
 }
 
+/* Subtítulo de página */
 .page-subtitle {
-  font-size: 1.25rem;
-  max-width: 800px;
-  margin: 1.5rem auto 0;
+  font-size: 1.25rem; /* Tamaño mediano (20px) */
+  max-width: 800px; /* Ancho máximo */
+  margin: 1.5rem auto 0; /* Centrado con espacio superior */
 }
 
-/* Back to services button */
+/* Botón de regreso a servicios */
 .back-to-services {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem; /* Espacio inferior */
 }
 
+/* Estilo del botón de regreso */
 .back-to-services .secondary-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-flex; /* Flexbox para alinear ícono y texto */
+  align-items: center; /* Centrado vertical */
+  gap: 0.5rem; /* Espacio entre ícono y texto */
 }
 
+/* Ícono dentro del botón de regreso */
 .back-to-services .secondary-button span {
-  font-size: 1.2rem;
-  line-height: 1;
+  font-size: 1.2rem; /* Tamaño del ícono (19.2px) */
+  line-height: 1; /* Altura ajustada */
 }
 
-/* Estilos para indicadores de carga y mensajes de error */
+/* ==========================================================================
+   Indicadores de Carga y Mensajes de Error
+   ========================================================================== */
+
+/* Indicador de carga */
 .loading-indicator {
-  padding: 1rem;
-  text-align: center;
-  color: #666;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  padding: 1rem; /* Espaciado interno */
+  text-align: center; /* Centrado */
+  color: #666; /* Gris medio */
+  background-color: #f5f5f5; /* Fondo gris claro */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
+/* Mensaje de error genérico */
 .error-message {
-  padding: 1rem;
-  text-align: center;
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
-  margin: 1rem 0;
+  padding: 1rem; /* Espaciado interno */
+  text-align: center; /* Centrado */
+  color: #721c24; /* Rojo oscuro */
+  background-color: #f8d7da; /* Fondo rojo claro */
+  border: 1px solid #f5c6cb; /* Borde rojo suave */
+  border-radius: 4px; /* Bordes redondeados */
+  margin: 1rem 0; /* Espacio vertical */
 }
 
+/* Botón dentro del mensaje de error */
 .error-message button {
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-top: 0.5rem; /* Espacio superior */
+  padding: 0.25rem 0.75rem; /* Espaciado interno */
+  background-color: #dc3545; /* Rojo para acción */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Mano al pasar el mouse */
 }
 
+/* Error global (overlay) */
 .global-error {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
+  position: fixed; /* Cubre toda la pantalla */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  display: flex; /* Centra el contenido */
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 9999; /* Capa muy alta */
 }
 
+/* Contenido del error global */
 .error-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 90%;
-  width: 400px;
-  text-align: center;
+  background-color: white; /* Fondo blanco */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  max-width: 90%; /* Ancho máximo responsivo */
+  width: 400px; /* Ancho fijo */
+  text-align: center; /* Texto centrado */
 }
 
+/* Botón dentro del error global */
 .error-content button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  margin-top: 1rem; /* Espacio superior */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  background-color: var(--accent-color); /* Color de acento */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Mano al pasar el mouse */
 }
 
-/* Responsive Styles - Básicos (el resto está en responsive.css) */
+/* ==========================================================================
+   Estilos Responsivos Básicos
+   ========================================================================== */
+
+/* Pantallas hasta 992px (tablets y móviles grandes) */
 @media (max-width: 992px) {
+  /* Menú de navegación en móviles */
   .nav-menu {
-    display: none;
-    position: absolute;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    background-color: var(--secondary-bg);
-    flex-direction: column;
-    padding: 1rem 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Debajo del header */
+    top: var(--header-height); left: 0;
+    width: 100%; /* Ancho completo */
+    background-color: var(--secondary-bg); /* Fondo secundario */
+    flex-direction: column; /* Vertical en móviles */
+    padding: 1rem 0; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra debajo */
+    z-index: 100; /* Capa alta */
   }
 
   .nav-menu.active {
-    display: flex;
+    display: flex; /* Visible cuando está activo */
   }
 
   .nav-item {
-    margin: 0.5rem 0;
-    text-align: center;
+    margin: 0.5rem 0; /* Espacio vertical entre ítems */
+    text-align: center; /* Centrado */
   }
 
   .language-selector {
-    display: none;
+    display: none; /* Oculto en móviles */
   }
 
   .language-selector-mobile {
-    display: block;
+    display: block; /* Visible en móviles */
   }
 
   .mobile-menu-button {
-    display: block;
+    display: block; /* Visible en móviles */
   }
 }
 
+/* Pantallas hasta 1200px (pantallas grandes) */
 @media (max-width: 1200px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 3rem; /* Reduce tamaño a 48px */
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.25rem; /* Reduce tamaño a 20px */
   }
 }
 
+/* Pantallas hasta 768px (tablets) */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Reduce tamaño a 40px */
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Reduce tamaño a 19.2px */
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce tamaño a 32px */
   }
 
   .feature-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem; /* Reduce padding */
   }
 
+  /* Menú móvil (repetido para consistencia) */
   .nav-menu {
     display: none;
     position: absolute;
-    top: var(--header-height);
-    left: 0;
+    top: var(--header-height); left: 0;
     width: 100%;
     background-color: var(--secondary-bg);
     flex-direction: column;
@@ -1073,7 +1174,7 @@ select:focus {
   }
 
   .nav-link::after {
-    display: none;
+    display: none; /* Línea oculta en móviles */
   }
 
   .language-selector {
@@ -1088,120 +1189,103 @@ select:focus {
     display: block;
   }
 
+  /* Footer en móviles */
   .footer-content {
-    flex-direction: column;
+    flex-direction: column; /* Apila verticalmente */
   }
 
   .footer-links {
-    margin-top: 1rem;
-    justify-content: center;
+    margin-top: 1rem; /* Espacio superior */
+    justify-content: center; /* Centrado */
   }
 
   .footer-link {
-    margin: 0 0.75rem;
+    margin: 0 0.75rem; /* Espacio horizontal */
   }
 
   .page-title {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Reduce tamaño a 40px */
   }
 }
 
+/* Pantallas hasta 576px (móviles pequeños) */
 @media (max-width: 576px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce tamaño a 32px */
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 1rem; /* Reduce tamaño a 16px */
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* Reduce tamaño a 28px */
   }
 
   .feature-card,
   .service-card {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Reduce padding */
   }
 
   .page-title {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce tamaño a 32px */
   }
 
   .contact-form-container {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Reduce padding */
   }
 
   .hero-buttons {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column; /* Apila botones verticalmente */
+    width: 100%; /* Ancho completo */
   }
 
   .cta-button,
   .secondary-button {
-    width: 100%;
+    width: 100%; /* Botones ocupan todo el ancho */
   }
 }
 
-/* Utility Classes */
+/* ==========================================================================
+   Clases Utilitarias
+   ========================================================================== */
+
 .hidden {
-  display: none !important;
+  display: none !important; /* Oculta elementos con prioridad alta */
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-out;
+  animation: fadeIn 1s ease-out; /* Animación de aparición */
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; } /* Inicio: invisible */
+  to { opacity: 1; } /* Final: visible */
 }
 
 .slide-in-left {
-  animation: slideInLeft 1s ease-out;
+  animation: slideInLeft 1s ease-out; /* Animación desde la izquierda */
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); } /* Inicio: invisible y a la izquierda */
+  to { opacity: 1; transform: translateX(0); } /* Final: visible y en posición */
 }
 
 .slide-in-right {
-  animation: slideInRight 1s ease-out;
+  animation: slideInRight 1s ease-out; /* Animación desde la derecha */
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); } /* Inicio: invisible y a la derecha */
+  to { opacity: 1; transform: translateX(0); } /* Final: visible y en posición */
 }
 
 .bounce {
-  animation: bounce 1s ease infinite;
+  animation: bounce 1s ease infinite; /* Animación de rebote infinita */
 }
 
 @keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); } /* Inicio y fin: posición normal */
+  50% { transform: translateY(-10px); } /* Mitad: sube 10px */
 }
-
