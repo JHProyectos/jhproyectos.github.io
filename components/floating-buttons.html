@@ -1,0 +1,155 @@
+<!-- Botones flotantes compartidos -->
+<div class="floating-buttons-container">
+    <!-- WhatsApp Button -->
+    <a href="whatsapp://send?phone=543462561503" class="whatsapp-button">
+        <img src="https://jhproyectos.github.io/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle">
+        <span class="theme-toggle-icon">🌙</span>
+    </button>
+
+    <!-- Language Selector (Mobile) -->
+    <div class="language-selector-mobile">
+        <button id="lang-toggle-mobile" class="lang-toggle-mobile">🌐</button>
+    </div>
+</div>
+
+<style>
+    /* Estilos para el contenedor de botones flotantes */
+    .floating-buttons-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+    
+    /* Mantener los estilos existentes para cada botón */
+    .whatsapp-button {
+        position: relative; /* Cambiado de fixed a relative */
+        bottom: auto; /* Eliminar posicionamiento fixed */
+        right: auto; /* Eliminar posicionamiento fixed */
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: all var(--transition-speed);
+    }
+
+    .theme-toggle {
+        position: relative; /* Cambiado de fixed a relative */
+        bottom: auto; /* Eliminar posicionamiento fixed */
+        left: auto; /* Eliminar posicionamiento fixed */
+        width: 50px;
+        height: 50px;
+        background-color: var(--secondary-bg);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--card-shadow);
+        cursor: pointer;
+        transition: all var(--transition-speed);
+    }
+
+    .language-selector-mobile {
+        position: relative; /* Cambiado de fixed a relative */
+        bottom: auto; /* Eliminar posicionamiento fixed */
+        left: auto; /* Eliminar posicionamiento fixed */
+        display: none;
+    }
+
+    /* Mantener los demás estilos existentes */
+    .whatsapp-button::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #25d366;
+        opacity: 0.6;
+        animation: pulse 2s infinite;
+        z-index: -1;
+    }
+
+    .whatsapp-button:hover {
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    .whatsapp-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .theme-toggle:hover {
+        transform: scale(1.1) rotate(15deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .theme-toggle-icon {
+        font-size: 1.5rem;
+        transition: transform var(--transition-speed);
+    }
+
+    .theme-toggle:hover .theme-toggle-icon {
+        transform: rotate(360deg);
+    }
+
+    .lang-toggle-mobile {
+        width: 50px;
+        height: 50px;
+        background-color: var(--secondary-bg);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--card-shadow);
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all var(--transition-speed);
+    }
+
+    .lang-toggle-mobile:hover {
+        transform: scale(1.1) rotate(15deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Ajustes para móviles */
+    @media (max-width: 768px) {
+        .floating-buttons-container {
+            flex-direction: column;
+            bottom: 20px;
+            right: 20px;
+            gap: 15px;
+        }
+        
+        .language-selector-mobile {
+            display: block;
+        }
+        
+        .theme-toggle {
+            order: 2;
+        }
+        
+        .whatsapp-button {
+            order: 1;
+        }
+        
+        .language-selector-mobile {
+            order: 3;
+        }
+    }
+</style>
+
