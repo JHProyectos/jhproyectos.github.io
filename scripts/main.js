@@ -79,11 +79,11 @@ function showErrorMessage(message) {
   const errorDiv = document.createElement("div")
   errorDiv.className = "global-error"
   errorDiv.innerHTML = `
-    <div class="error-content">
-      <p>${message}</p>
-      <button onclick="window.location.reload()">Recargar página</button>
-    </div>
-  `
+   <div class="error-content">
+     <p>${message}</p>
+     <button onclick="window.location.reload()">Recargar página</button>
+   </div>
+ `
   document.body.appendChild(errorDiv)
 }
 
@@ -151,11 +151,13 @@ function setTheme(theme) {
       themeIcon.textContent = "☀️"
       document.body.classList.add("dark-theme")
       document.body.classList.remove("light-theme")
+      document.documentElement.classList.add("dark-theme")
     } else {
       themeStylesheet.href = `${basePath}styles/light-theme.css`
       themeIcon.textContent = "🌙"
       document.body.classList.add("light-theme")
       document.body.classList.remove("dark-theme")
+      document.documentElement.classList.remove("dark-theme")
     }
 
     localStorage.setItem("theme", theme)
@@ -281,5 +283,12 @@ function updateLanguageButtons(activeLang) {
       button.classList.remove("active")
     }
   })
+}
+```  {
+     button.classList.add("active")
+   } else {
+     button.classList.remove("active")
+   }
+ })
 }
 
