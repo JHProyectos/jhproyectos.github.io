@@ -1,4 +1,4 @@
-:root {
+:root.dark-theme {
   --bg-color: #1a1a1a;
   --text-color: #e0e0e0;
   --accent-color: #00c4ff;
@@ -7,5 +7,125 @@
   --border-color: #444444;
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --card-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos específicos para el tema oscuro */
+body.dark-theme {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --accent-color: #00c4ff;
+  --accent-hover: #0090c0;
+  --secondary-bg: #2a2a2a;
+  --border-color: #444444;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.4);
+
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-theme header {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .feature-card,
+body.dark-theme .contact-form-container,
+body.dark-theme .contact-info,
+body.dark-theme footer,
+body.dark-theme .page-header,
+body.dark-theme .services-preview {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .service-card {
+  background-color: #1a1a1a;
+}
+
+/* Asegurar que los enlaces y textos tengan el color correcto */
+body.dark-theme .nav-link,
+body.dark-theme .footer-link {
+  color: #e0e0e0;
+}
+
+/* Asegurar que los inputs tengan el color de fondo correcto */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border-color: #444444;
+}
+
+/* Estilos para botones y elementos interactivos */
+body.dark-theme .cta-button {
+  background-color: #00c4ff;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(0, 196, 255, 0.3);
+}
+
+body.dark-theme .cta-button:hover {
+  background-color: #0090c0;
+  box-shadow: 0 8px 25px rgba(0, 196, 255, 0.4);
+}
+
+body.dark-theme .secondary-button {
+  color: #00c4ff;
+  border-color: #00c4ff;
+}
+
+body.dark-theme .secondary-button:hover {
+  color: #1a1a1a;
+}
+
+body.dark-theme .secondary-button::before {
+  background-color: #00c4ff;
+}
+
+/* Estilos para tarjetas y contenedores */
+body.dark-theme .feature-card:hover h3,
+body.dark-theme .service-card:hover h3 {
+  color: #00c4ff;
+}
+
+body.dark-theme .feature-card::before {
+  background-color: rgba(0, 196, 255, 0.05);
+}
+
+body.dark-theme .service-card::after {
+  background-color: #00c4ff;
+}
+
+/* Estilos para elementos de formulario */
+body.dark-theme input:focus,
+body.dark-theme textarea:focus,
+body.dark-theme select:focus {
+  border-color: #00c4ff;
+  box-shadow: 0 0 0 3px rgba(0, 196, 255, 0.2);
+}
+
+/* Ajustes para mejorar la legibilidad en tema oscuro */
+body.dark-theme .section-title::after {
+  background-color: #00c4ff;
+}
+
+body.dark-theme .page-title::after {
+  background-color: #00c4ff;
+}
+
+body.dark-theme .contact-item h3 {
+  color: #00c4ff;
+}
+
+body.dark-theme .error-title {
+  color: #00c4ff;
+}
+
+/* Ajustes para botones flotantes en tema oscuro */
+body.dark-theme .theme-toggle {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .lang-toggle-mobile {
+  background-color: #2a2a2a;
 }
 
