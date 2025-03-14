@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cargar componentes con Promise.all para esperar a que todos terminen
   Promise.all([
-    loadComponent("header-container", "https://jhproyectos.github.io/components/header.html"),
-    loadComponent("footer-container", "https://jhproyectos.github.io/components/footer.html"),
-    loadComponent("floating-buttons-container", "https://jhproyectos.github.io/components/floating-buttons.html"),
+      loadComponent("header-container", "/components/header.html");
+      loadComponent("footer-container", "/components/footer.html");
+      loadComponent("floating-buttons-container", "/components/floating-buttons.html");
   ])
     .then(() => {
       console.log("Componentes cargados exitosamente");
